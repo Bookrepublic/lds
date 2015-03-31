@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331130152) do
+ActiveRecord::Schema.define(version: 20150331132416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,21 @@ ActiveRecord::Schema.define(version: 20150331130152) do
     t.string   "link_amazon"
     t.string   "link_kobo"
     t.string   "link_apple"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.integer  "collection_id"
+  end
+
+  add_index "books", ["collection_id"], name: "index_books_on_collection_id", using: :btree
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -47,4 +60,5 @@ ActiveRecord::Schema.define(version: 20150331130152) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  add_foreign_key "books", "collections"
 end
