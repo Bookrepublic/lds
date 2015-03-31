@@ -23,6 +23,11 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem 'paperclip'
+gem 'devise'
+
+# Activeadmin
+
+gem 'activeadmin', github: 'activeadmin'
 
 # Frontend
 
