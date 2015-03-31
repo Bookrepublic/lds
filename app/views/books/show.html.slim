@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @book.title
+p
+  strong Description:
+  = @book.description
+p
+  strong Price:
+  = @book.price
+p
+  strong Pages:
+  = @book.pages
+p
+  strong Isbn:
+  = @book.isbn
+p
+  strong Pubblication date:
+  = @book.pubblication_date
+p
+  strong Link bookrepublic:
+  = @book.link_bookrepublic
+p
+  strong Link amazon:
+  = @book.link_amazon
+p
+  strong Link kobo:
+  = @book.link_kobo
+p
+  strong Link apple:
+  = @book.link_apple
+
+= link_to 'Edit', edit_book_path(@book)
+'|
+= link_to 'Back', books_path

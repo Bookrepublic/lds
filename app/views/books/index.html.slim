@@ -1,0 +1,39 @@
+h1 Listing books
+
+table
+  thead
+    tr
+      th Title
+      th Description
+      th Price
+      th Pages
+      th Isbn
+      th Pubblication date
+      th Link bookrepublic
+      th Link amazon
+      th Link kobo
+      th Link apple
+      th
+      th
+      th
+
+  tbody
+    - @books.each do |book|
+      tr
+        td = book.title
+        td = book.description
+        td = book.price
+        td = book.pages
+        td = book.isbn
+        td = book.pubblication_date
+        td = book.link_bookrepublic
+        td = book.link_amazon
+        td = book.link_kobo
+        td = book.link_apple
+        td = link_to 'Show', book
+        td = link_to 'Edit', edit_book_path(book)
+        td = link_to 'Destroy', book, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Book', new_book_path
