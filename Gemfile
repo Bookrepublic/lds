@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby "2.2.1"
 
 gem "airbrake"
-gem "bourbon", "~> 4.2.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "delayed_job_active_record"
 gem "email_validator"
@@ -11,7 +10,6 @@ gem "flutie"
 gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
-gem "neat", "~> 1.7.0"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
@@ -24,6 +22,10 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+
+# Frontend
+
+gem 'slim-rails'
 
 group :development do
   gem "spring"
