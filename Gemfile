@@ -22,8 +22,12 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
-gem 'paperclip'
 gem 'devise'
+
+# Paperclip
+
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Activeadmin
 
