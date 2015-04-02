@@ -27,7 +27,7 @@ gem 'devise'
 # Paperclip
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # Activeadmin
 

@@ -63,15 +63,11 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.0)
     awesome_print (1.6.1)
-    aws-sdk (2.0.33)
-      aws-sdk-resources (= 2.0.33)
-    aws-sdk-core (2.0.33)
-      builder (~> 3.0)
-      jmespath (~> 1.0)
-      multi_json (~> 1.0)
-      multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.33)
-      aws-sdk-core (= 2.0.33)
+    aws-sdk (1.63.0)
+      aws-sdk-v1 (= 1.63.0)
+    aws-sdk-v1 (1.63.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -170,8 +166,6 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -194,7 +188,6 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
-    multi_xml (0.5.5)
     newrelic_rpm (3.11.1.284)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -349,7 +342,7 @@ DEPENDENCIES
   activeadmin!
   airbrake
   awesome_print
-  aws-sdk
+  aws-sdk (< 2.0)
   bundler-audit
   byebug
   capybara-webkit (>= 1.2.0)
