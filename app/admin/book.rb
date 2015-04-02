@@ -1,6 +1,6 @@
 ActiveAdmin.register Book do
 
-  permit_params :title, :description, :price, :pages, :isbn, :pubblication_date, :link_bookrepublic, :link_amazon, :link_kobo, :link_apple, :cover, collection_ids: [], author_ids: []
+  permit_params :title, :description, :price, :pages, :isbn, :pubblication_date, :link_bookrepublic, :link_amazon, :link_kobo, :link_apple, :cover, :collection_id, author_ids: []
 
   form do |f|
     f.inputs "Book details" do
@@ -28,6 +28,7 @@ ActiveAdmin.register Book do
       f.input :link_apple
       f.input :link_kobo
     end
+    f.actions
   end
 
 end
