@@ -35,6 +35,7 @@ gem 'activeadmin', github: 'activeadmin'
 
 # Frontend
 
+gem 'autoprefixer-rails'
 gem 'slim-rails'
 gem 'rails-assets-normalize-scss'
 gem 'sass'
