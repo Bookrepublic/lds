@@ -3,6 +3,14 @@ p#notice = notice
 p
   strong Title:
   = @book.title
+- if @book.authors.count > 0
+  p
+    - @book.authors.each do |author|
+      strong Author:
+      = author.full_name
+      strong Avatar:
+      = link_to(author) do
+        = image_tag author.avatar.url
 p
   strong Description:
   = @book.description
@@ -30,11 +38,6 @@ p
 p
   strong Link apple:
   = @book.link_apple
-
 p
   strong Cover:
   img src= @book.cover
-
-= link_to 'Edit', edit_book_path(@book)
-'|
-= link_to 'Back', books_path

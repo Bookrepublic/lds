@@ -1,15 +1,9 @@
-.header
-  .wrap
-    .header__inner
-      .header__logo
-        p
-          | Logo
-      ul.header__menu
-        li.header__menu__item
-          | Primo
-        li.header__menu__item
-          | Secondo
-        li.header__menu__item
-          | Terzo
-        li.header__menu__item
-          | Quarto
+.wrap
+  - @books.each do |book|
+    h2
+      = link_to book.title, book
+    - if book.authors.count > 0
+      p
+        | by 
+        - book.authors.each do |author|
+          = link_to author.full_name, author

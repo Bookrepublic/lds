@@ -5,11 +5,26 @@ html
     meta name="ROBOTS" content="NOODP"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, maximum-scale=1.0"
-    title 
+    title
       = title
     = stylesheet_link_tag :application, media: "all"
     = csrf_meta_tags
   body class="= body_class"
-  = render "flashes"
-  = yield
-  = render "javascript"
+    .header
+      .wrap
+        .header__inner
+          .header__logo
+            p
+              = link_to 'Logo', root_path
+          ul.header__menu
+            li.header__menu__item
+              = link_to 'Libri', books_path
+            li.header__menu__item
+              | Secondo
+            li.header__menu__item
+              | Terzo
+            li.header__menu__item
+              | Quarto
+    = render "flashes"
+    = yield
+    = render "javascript"
