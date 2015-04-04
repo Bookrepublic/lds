@@ -41,9 +41,11 @@ gem 'rails-assets-normalize-scss'
 gem 'sass'
 
 group :development do
-gem "spring"
-gem "spring-commands-rspec"
-gem "web-console"
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem "web-console"
+  gem "guard"
+  gem "guard-livereload"
 end
 
 group :development, :test do
