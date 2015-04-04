@@ -15,4 +15,8 @@ class Author < ActiveRecord::Base
     [first_name, last_name].join(" ")
   end
 
+  def avatar_url
+    read_attribute(:avatar_file_name).present? ? avatar.url : "http://placehold.it/340x510"
+  end
+
 end
