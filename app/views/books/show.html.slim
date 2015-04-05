@@ -9,9 +9,10 @@
       - @book.authors.each do |author|
         strong Author:
         = author.full_name
-        strong Avatar:
-        = link_to(author) do
-          = image_tag author.avatar.url
+        p
+          strong Avatar:
+          = link_to(author) do
+            = image_tag author.avatar_url
   p
     strong Description:
     = @book.description
@@ -41,4 +42,4 @@
     = @book.link_apple
   p
     strong Cover:
-    img src= @book.cover
+    img src= @book.cover_url
