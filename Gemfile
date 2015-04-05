@@ -41,6 +41,8 @@ gem 'rails-assets-normalize-scss'
 gem 'sass'
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"

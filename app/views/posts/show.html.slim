@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @post.title
+p
+  strong Subtitle:
+  = @post.subtitle
+p
+  strong Excerpt:
+  = @post.excerpt
+p
+  strong Article:
+  = @post.article
+p
+  strong Date:
+  = @post.date
+p
+  strong Status:
+  = @post.status
+
+= link_to 'Edit', edit_post_path(@post)
+'|
+= link_to 'Back', posts_path
