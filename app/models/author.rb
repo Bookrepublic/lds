@@ -16,7 +16,7 @@ class Author < ActiveRecord::Base
   end
 
   def avatar_url
-    read_attribute(:avatar_file_name).present? ? avatar.url : "http://placehold.it/340x510"
+    read_attribute(:avatar_file_name).present? ? avatar.url : "http://placehold.it/140x100"
   end
 
 end
