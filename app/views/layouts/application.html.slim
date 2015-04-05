@@ -25,7 +25,13 @@ html
               | Terzo
             li.header__menu__item
               | Quarto
-    = render "flashes"
+            li.header__menu__item
+              - if user_signed_in?
+                = link_to 'LOGOUT', destroy_user_session_path, method: :delete
+              - else
+                = link_to 'SIGN IN', new_user_session_path
+    .wrap
+      = render "flashes"
     .wrap
       = yield
     = render "javascript"
