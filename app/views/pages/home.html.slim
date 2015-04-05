@@ -1,9 +1,8 @@
-.wrap
-  - @books.each do |book|
-    h2
-      = link_to book.title, book
-    - if book.authors.count > 0
-      p
-        | by 
-        - book.authors.each do |author|
-          = link_to author.full_name, author
+- @books.each do |book|
+  h2
+    = link_to book.title, book
+  - if book.authors.count > 0
+    p
+      | by 
+      - book.authors.each do |author|
+        = link_to author.full_name, author

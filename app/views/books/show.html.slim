@@ -1,45 +1,44 @@
-.wrap
-  p#notice = notice
+p#notice = notice
 
+p
+  strong Title:
+  = @book.title
+- if @book.authors.count > 0
   p
-    strong Title:
-    = @book.title
-  - if @book.authors.count > 0
-    p
-      - @book.authors.each do |author|
-        strong Author:
-        = author.full_name
-        p
-          strong Avatar:
-          = link_to(author) do
-            = image_tag author.avatar_url
-  p
-    strong Description:
-    = @book.description
-  p
-    strong Price:
-    = @book.price
-  p
-    strong Pages:
-    = @book.pages
-  p
-    strong Isbn:
-    = @book.isbn
-  p
-    strong Pubblication date:
-    = @book.pubblication_date
-  p
-    strong Link bookrepublic:
-    = @book.link_bookrepublic
-  p
-    strong Link amazon:
-    = @book.link_amazon
-  p
-    strong Link kobo:
-    = @book.link_kobo
-  p
-    strong Link apple:
-    = @book.link_apple
-  p
-    strong Cover:
-    img src= @book.cover_url
+    - @book.authors.each do |author|
+      strong Author:
+      = author.full_name
+      p
+        strong Avatar:
+        = link_to(author) do
+          = image_tag author.avatar_url
+p
+  strong Description:
+  = @book.description
+p
+  strong Price:
+  = @book.price
+p
+  strong Pages:
+  = @book.pages
+p
+  strong Isbn:
+  = @book.isbn
+p
+  strong Pubblication date:
+  = @book.pubblication_date
+p
+  strong Link bookrepublic:
+  = @book.link_bookrepublic
+p
+  strong Link amazon:
+  = @book.link_amazon
+p
+  strong Link kobo:
+  = @book.link_kobo
+p
+  strong Link apple:
+  = @book.link_apple
+p
+  strong Cover:
+  img src= @book.cover_url

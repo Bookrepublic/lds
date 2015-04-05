@@ -1,14 +1,13 @@
-.wrap
-  p#notice = notice
+p#notice = notice
 
-  p
-    strong First name:
-    = @author.first_name
-  p
-    strong Last name:
-    = @author.last_name
-  p
-    strong Biography:
-    = @author.biography
-  p
-    = image_tag @author.avatar_url
+p
+  strong First name:
+  = @author.first_name
+p
+  strong Last name:
+  = @author.last_name
+p
+  strong Biography:
+  = @author.biography
+p
+  = image_tag @author.avatar_url
