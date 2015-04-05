@@ -1,16 +1,15 @@
-.wrap
-  h1 Listing authors
+h1 Listing authors
 
-  table
-    thead
+table
+  thead
+    tr
+      th First name
+      th Last name
+      th Biography
+
+  tbody
+    - @authors.each do |author|
       tr
-        th First name
-        th Last name
-        th Biography
-
-    tbody
-      - @authors.each do |author|
-        tr
-          td = author.first_name
-          td = link_to author.last_name, author
-          td = author.biography
+        td = author.first_name
+        td = link_to author.last_name, author
+        td = author.biography
