@@ -23,6 +23,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem 'devise'
+gem 'cancancan'
 
 # Paperclip
 
