@@ -9,18 +9,23 @@ update_records(Author, [
   {id: 3, first_name: 'Matteo', last_name: 'Brambilla', biography: 'Scrivere poco. Ma poi perché?'}
 ])
 
+update_records(User, [
+  {id: 1, first_name: 'Severo', last_name: 'Utente', biography: "Fin da piccolo è stato considerato un personaggio severo, al limite dell'ostracismo verso se stesso.", email: 'severo@severo.it', password: 'password123', password_confirmation: 'password123'},
+  {id: 2, first_name: 'Marco', last_name: 'Ferrario', biography: 'Gli anni 80 non sono \'epoca storica. Gli anni 80 sono uno stato mentale', email: 'marco@ferrario.it', password: 'password123', password_confirmation: 'password123'}
+])
+
 update_records(Collection, [
   {id: 1, name: 'Letteratura'},
   {id: 2, name: 'Saggistica'}
 ])
 
 update_records(AuthorBook, [
-  {author_id: 1, book_id: 1},
-  {author_id: 1, book_id: 2},
-  {author_id: 1, book_id: 3},
-  {author_id: 2, book_id: 4},
-  {author_id: 2, book_id: 5},
-  {author_id: 3, book_id: 6}
+  {id: 1, author_id: 1, book_id: 1},
+  {id: 2, author_id: 1, book_id: 2},
+  {id: 3, author_id: 1, book_id: 3},
+  {id: 4, author_id: 2, book_id: 4},
+  {id: 5, author_id: 2, book_id: 5},
+  {id: 6, author_id: 3, book_id: 6}
 ])
 
 update_records(Book, [
