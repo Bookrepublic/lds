@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-source 'https://rails-assets.org'
 
 ruby "2.2.1"
 
@@ -40,6 +39,11 @@ gem 'autoprefixer-rails'
 gem 'slim-rails'
 gem 'rails-assets-normalize-scss'
 gem 'sass'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-daviferreira--medium-editor'
+  gem 'rails-assets-iacquire-medium-editor-insert-plugin'
+end
 
 group :development do
   gem 'better_errors'

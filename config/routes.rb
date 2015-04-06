@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :books, only: [:index, :show]
   resources :authors, only: [:index, :show]
+  resources :images do
+    collection do
+      post :post_image, to: 'images#post_image_create'
+    end
+  end
 
   root to: 'pages#show', id: 'home'
 end

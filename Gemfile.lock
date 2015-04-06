@@ -262,6 +262,12 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.1)
       sprockets-rails
+    rails-assets-daviferreira--medium-editor (4.2.0)
+    rails-assets-iacquire-medium-editor-insert-plugin (0.4.0)
+      rails-assets-jquery (>= 1.9.0, < 2.0.4)
+      rails-assets-medium-editor (~> 1.9)
+    rails-assets-jquery (2.0.3)
+    rails-assets-medium-editor (1.9.13)
     rails-assets-normalize-scss (3.0.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -418,6 +424,8 @@ DEPENDENCIES
   pry-rails
   rack-timeout
   rails (= 4.2.1)
+  rails-assets-daviferreira--medium-editor!
+  rails-assets-iacquire-medium-editor-insert-plugin!
   rails-assets-normalize-scss
   recipient_interceptor
   refills
