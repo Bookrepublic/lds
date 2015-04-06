@@ -15,8 +15,9 @@
   .field
     = f.label :excerpt
     = f.text_area :excerpt
-  = f.hidden_field :article, id: 'article'
+  = f.hidden_field :article, html: { id: 'article' }
   .editable data-field-id='article'
+    = @post.article.html_safe
   .field
     = f.label :date
     = f.date_select :date
