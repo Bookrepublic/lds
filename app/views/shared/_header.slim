@@ -1,0 +1,20 @@
+.header
+  .wrap
+    .header__inner
+      .header__logo
+        p
+          = link_to 'Logo', root_path
+      ul.header__menu
+        li.header__menu__item
+          = link_to 'Libri', books_path
+        li.header__menu__item
+          = link_to 'Autori', authors_path
+        li.header__menu__item
+          = link_to 'Blog', posts_path
+        li.header__menu__item
+          | Video
+        li.header__menu__item
+          - if user_signed_in?
+            = link_to 'LOGOUT', destroy_user_session_path, method: :delete
+          - else
+            = link_to 'SIGN IN', new_user_session_path
