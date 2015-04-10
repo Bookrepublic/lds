@@ -19,6 +19,24 @@ update_records(Collection, [
   {id: 2, name: 'Saggistica'}
 ])
 
+update_records(Tag, [
+  {id: 1, tag: "Storia del mondo"},
+  {id: 2, tag: 'Storie di Granieri'},
+  {id: 3, tag: 'Storie di Sgarzi'}
+])
+
+update_records(PostTag, [
+  {id: 1, tag_id: 1, post_id: 1},
+  {id: 2, tag_id: 1, post_id: 2},
+  {id: 3, tag_id: 2, post_id: 3},
+  {id: 4, tag_id: 2, post_id: 4},
+  {id: 5, tag_id: 3, post_id: 5},
+  {id: 6, tag_id: 3, post_id: 1},
+  {id: 7, tag_id: 2, post_id: 2},
+  {id: 8, tag_id: 3, post_id: 3},
+
+])
+
 update_records(AuthorBook, [
   {id: 1, author_id: 1, book_id: 1},
   {id: 2, author_id: 1, book_id: 2},

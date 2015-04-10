@@ -1,0 +1,17 @@
+h2.alpha
+  = @tag.tag
+- @tag.posts.each do |post|
+  .formatted-content.space--top-2
+    h3.delta
+      = link_to post.title, post
+    p
+      | scritto da 
+      = post.user.first_name
+      |  il giorno 
+      = post.date
+    p
+      | tag: 
+      - post.tags.each do |tag|
+        = link_to tag.tag, tag
+        |  
+    p = post.excerpt

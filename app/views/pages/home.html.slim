@@ -38,4 +38,9 @@ h2.alpha.space--top-2
       = post.user.first_name
       |  il giorno 
       = post.date
+    p
+      | tag: 
+      - post.tags.each do |tag|
+        = link_to tag.tag, tag
+        |  
     p = post.excerpt

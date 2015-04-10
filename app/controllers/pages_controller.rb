@@ -11,7 +11,7 @@ class PagesController < ApplicationController
         @books = Book.includes(:authors).all
         @authors = Author.all
         @users = User.all
-        @posts = Post.includes(:user).published
+        @posts = Post.includes(:user, :tags).published
       end
     end
 end
