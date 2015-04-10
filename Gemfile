@@ -53,6 +53,7 @@ group :development do
   gem "web-console"
   gem "guard"
   gem "guard-livereload"
+  gem 'rack-livereload'
 end
 
 group :development, :test do

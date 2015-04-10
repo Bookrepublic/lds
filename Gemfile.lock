@@ -248,6 +248,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.0)
+    rack-livereload (0.3.15)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.2.3)
@@ -422,6 +424,7 @@ DEPENDENCIES
   paperclip
   pg
   pry-rails
+  rack-livereload
   rack-timeout
   rails (= 4.2.1)
   rails-assets-daviferreira--medium-editor!
