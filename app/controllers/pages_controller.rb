@@ -11,6 +11,7 @@ class PagesController < ApplicationController
         @books = Book.all
         @authors = Author.all
         @users = User.all
+        @posts = Post.published
       end
     end
 end

@@ -12,6 +12,10 @@ class PostsController < InheritedResources::Base
     respond_with(@post)
   end
 
+  def index
+    @posts = Post.published
+  end
+
   private
 
     def set_post
