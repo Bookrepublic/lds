@@ -75,3 +75,9 @@ update_records(BookVideo, [
   {id:2, book_id: 2, video_id: 2},
   {id:3, book_id: 2, video_id: 3},
 ])
+
+update_records(AuthorVideo, [
+  {id:1, author_id: 1, video_id: 1},
+  {id:2, author_id: 2, video_id: 2},
+  {id:3, author_id: 2, video_id: 3},
+])

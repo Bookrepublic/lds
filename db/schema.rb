@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411142718) do
+ActiveRecord::Schema.define(version: 20150411215937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20150411142718) do
 
   add_index "author_books", ["author_id"], name: "index_author_books_on_author_id", using: :btree
   add_index "author_books", ["book_id"], name: "index_author_books_on_book_id", using: :btree
+
+  create_table "author_videos", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "author_videos", ["author_id"], name: "index_author_videos_on_author_id", using: :btree
+  add_index "author_videos", ["video_id"], name: "index_author_videos_on_video_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -197,6 +207,8 @@ ActiveRecord::Schema.define(version: 20150411142718) do
     t.string   "title"
   end
 
+  add_foreign_key "author_videos", "authors"
+  add_foreign_key "author_videos", "videos"
   add_foreign_key "book_videos", "books"
   add_foreign_key "book_videos", "videos"
   add_foreign_key "books", "collections"

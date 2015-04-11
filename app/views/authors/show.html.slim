@@ -1,13 +1,16 @@
-p#notice = notice
-
+h2.alpha
+  = @author.full_name
 p
-  strong First name:
-  = @author.first_name
-p
-  strong Last name:
-  = @author.last_name
-p
-  strong Biography:
   = @author.biography
 p
   = image_tag @author.avatar_url
+- if @author.books.count > 0
+  h3.gamma
+    | Libri correlati
+  - @author.books.each do |book|
+    p = link_to book.title, book
+- if @author.videos.count > 0
+  h3.gamma
+    | Video correlati
+  - @author.videos.each do |video|
+    p = link_to video.title, video

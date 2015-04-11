@@ -4,3 +4,8 @@ p = @video.description
 .video
   .video-wrapper
     iframe src=@video.video frameborder="0" allowfullscreen
+- if @video.books.count > 0
+  h3.gamma
+    | Libri correlati
+  - @video.books.each do |book|
+    p = link_to book.title, book

@@ -1,15 +1,8 @@
-h1 Listing authors
+h1.alpha Listing authors
 
-table
-  thead
-    tr
-      th First name
-      th Last name
-      th Biography
-
-  tbody
-    - @authors.each do |author|
-      tr
-        td = author.first_name
-        td = link_to author.last_name, author
-        td = author.biography
+- @authors.each do |author|
+  h2.gamma.space--top-2
+    = link_to author.full_name, author
+  = author.biography
+  p
+    = image_tag author.avatar_url
