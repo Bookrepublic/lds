@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411133010) do
+ActiveRecord::Schema.define(version: 20150411142718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20150411133010) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "book_videos", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_videos", ["book_id"], name: "index_book_videos_on_book_id", using: :btree
+  add_index "book_videos", ["video_id"], name: "index_book_videos_on_video_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -187,6 +197,8 @@ ActiveRecord::Schema.define(version: 20150411133010) do
     t.string   "title"
   end
 
+  add_foreign_key "book_videos", "books"
+  add_foreign_key "book_videos", "videos"
   add_foreign_key "books", "collections"
   add_foreign_key "posts", "users"
 end

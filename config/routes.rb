@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show]
   resources :authors, only: [:index, :show]
   resources :tags, only: [:show]
+  resources :videos, only: [:show, :index]
   resources :images do
     collection do
       post :post_image, to: 'images#post_image_create'

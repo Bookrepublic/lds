@@ -12,7 +12,7 @@
         li.header__menu__item
           = link_to 'Blog', posts_path
         li.header__menu__item
-          | Video
+          = link_to 'Video', videos_path
         li.header__menu__item
           - if user_signed_in?
             = link_to 'LOGOUT', destroy_user_session_path, method: :delete

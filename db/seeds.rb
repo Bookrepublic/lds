@@ -65,7 +65,13 @@ update_records(Post, [
 ])
 
 update_records(Video, [
-  {id:1, video: "htps://www.youtube.com/embed/XZm1m-NmEj0", title: 'Un video recuperato', description: 'Questo è un video proprio bellino'},
+  {id:1, video: "https://youtube.com/embed/Skpu5HaVkOc", title: 'Un video recuperato', description: 'Questo è un video proprio bellino'},
   {id: 2, video: 'https://www.youtube.com/embed/8gqqX7ZdwyI', title: 'Ancora un video tanto bellino capace di attirare click come non mai', description: 'In questo caso possiamo dire, senza, indugio che il titolo dice già tutto da sé'},
   {id: 3, video: 'https://www.youtube.com/embed/Sf242s0YwpY', title: 'Ultimo cortometraggio di un grande cineasta', description: 'Come ricordare il lavoro di un grande artista? Forse questo video basterà a dircelo. Forse no. E allora sarà tutto finito. Per sempre.'}
+])
+
+update_records(BookVideo, [
+  {id:1, book_id: 1, video_id: 1},
+  {id:2, book_id: 2, video_id: 2},
+  {id:3, book_id: 2, video_id: 3},
 ])

@@ -4,12 +4,11 @@ h2.alpha
     .grid__item.width-12-12.desk-4-12
       img src= @book.cover_url style='height:280px;width:210px'
         - if @book.authors.count > 0
-          p
-            - @book.authors.each do |author|
-              p = link_to(author) do
-                = author.full_name
-              p = link_to(author) do
-                = image_tag author.avatar_url
+          - @book.authors.each do |author|
+            p = link_to(author) do
+              = author.full_name
+            p = link_to(author) do
+              = image_tag author.avatar_url
     .grid__item.width-12-12.desk-8-12
       p
         strong Description:
@@ -41,4 +40,8 @@ h2.alpha
       p
         strong Link apple:
         = @book.link_apple
-
+      - if @book.videos.count > 0
+        h3.gamma
+          | Video correlati
+        - @book.videos.each do |video|
+          p = link_to video.title, video
