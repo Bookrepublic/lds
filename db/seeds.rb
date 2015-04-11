@@ -89,6 +89,14 @@ update_records(VideoTag, [
   {id:4, tag_id: 3, video_id: 3}
 ])
 
+
+update_records(SponsorVideo, [
+  {id:1, sponsor_id: 1, video_id: 1},
+  {id:2, sponsor_id: 2, video_id: 2},
+  {id:3, sponsor_id: 1, video_id: 2},
+  {id:4, sponsor_id: 3, video_id: 3}
+])
+
 update_records(Sponsor, [
   {id:1, first_name: 'Friedrich', last_name: 'Nietzsche', biography: "Tra i massimi filosofi e prosatori di ogni tempo, Nietzsche ebbe un'influenza controversa, ma indiscutibile, sul pensiero filosofico, letterario, politico e scientifico del Novecento. La sua filosofia, appartenente al filone delle filosofie della vita, è considerata da alcuni uno spartiacque fra la filosofia tradizionale e un nuovo modello di riflessione, informale e provocatorio. In ogni caso, si tratta di un pensatore unico nel suo genere, sì da giustificare l'enorme influenza da lui esercitata sul pensiero posteriore."},
   {id:2, first_name: 'George Wilhelm Friedrich', last_name: 'Hegel', biography: "È autore di una delle linee di pensiero più profonde e complesse della tradizione occidentale. Partendo dal lavoro dei suoi predecessori nell'idealismo (Fichte e Schelling) e con influenze e suggestioni di altri sistemi di pensiero, sviluppò una filosofia innovativa, profonda e articolata. La sua visione storicista e idealista della realtà nel suo complesso ha rivoluzionato il pensiero europeo, gettando le basi della filosofia continentale e del marxismo successivi."},

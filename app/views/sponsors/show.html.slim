@@ -4,3 +4,8 @@ p
   = @sponsor.biography
 p
   = image_tag @sponsor.avatar_url
+- if @sponsor.videos.count > 0
+  h3.gamma
+    | Video correlati
+  - @sponsor.videos.each do |video|
+    p = link_to video.title, video

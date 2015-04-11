@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411232518) do
+ActiveRecord::Schema.define(version: 20150411234257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,16 @@ ActiveRecord::Schema.define(version: 20150411232518) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "sponsor_videos", force: :cascade do |t|
+    t.integer  "sponsor_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sponsor_videos", ["sponsor_id"], name: "index_sponsor_videos_on_sponsor_id", using: :btree
+  add_index "sponsor_videos", ["video_id"], name: "index_sponsor_videos_on_video_id", using: :btree
+
   create_table "sponsors", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -235,6 +245,8 @@ ActiveRecord::Schema.define(version: 20150411232518) do
   add_foreign_key "book_videos", "videos"
   add_foreign_key "books", "collections"
   add_foreign_key "posts", "users"
+  add_foreign_key "sponsor_videos", "sponsors"
+  add_foreign_key "sponsor_videos", "videos"
   add_foreign_key "video_tags", "tags"
   add_foreign_key "video_tags", "videos"
 end
