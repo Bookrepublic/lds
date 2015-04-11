@@ -1,0 +1,6 @@
+h2.alpha Tutti gli sponsor dei video
+- @sponsors.each do |sponsor|
+  h3.beta.space--top-2
+    = link_to sponsor.full_name, sponsor
+  p
+    = sponsor.biography

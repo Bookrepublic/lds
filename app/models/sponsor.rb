@@ -1,0 +1,11 @@
+class Sponsor < ActiveRecord::Base
+
+  def full_name
+    [first_name, last_name].join(" ")
+  end
+
+  def avatar_url
+    read_attribute(:avatar_file_name).present? ? avatar.url : "http://placehold.it/210x280"
+  end
+
+end

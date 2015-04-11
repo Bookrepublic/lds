@@ -16,6 +16,8 @@
         li.header__menu__item
           = link_to 'Tag', tags_path
         li.header__menu__item
+          = link_to 'Sponsor', sponsors_path
+        li.header__menu__item
           - if user_signed_in?
             = link_to 'LOGOUT', destroy_user_session_path, method: :delete
           - else
