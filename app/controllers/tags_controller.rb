@@ -1,7 +1,8 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show]
 
-  def show
+  def index
+    @tags = Tag.all
   end
 
   private

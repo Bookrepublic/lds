@@ -1,4 +1,5 @@
 h2.alpha
+  | Post con il tag 
   = @tag.tag
 - @tag.posts.each do |post|
   .formatted-content.space--top-2
@@ -15,3 +16,9 @@ h2.alpha
         = link_to tag.tag, tag
         |  
     p = post.excerpt
+- if @tag.videos.count > 0
+  h2.alpha.space--top-2
+    | Video con il tag 
+    = @tag.tag
+  - @tag.videos.each do |video|
+    p = link_to video.title, video

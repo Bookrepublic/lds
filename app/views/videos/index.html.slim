@@ -1,9 +1,14 @@
 h2.alpha
   | Tutti i video del sito
 - @videos.each do |video|
-  h3.delta.space--top-2
+  h3.beta.space--top-2
     =link_to video.title, video
   p = video.description
   .video
     .video-wrapper
       iframe src=video.video frameborder="0" allowfullscreen
+  - if video.tags.count > 0
+    h3.gamma.space--top-2
+      | Tag:  
+    - video.tags.each do |tag|
+      p = link_to tag.tag, tag

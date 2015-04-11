@@ -1,11 +1,15 @@
-h2.beta
-  = @video.title
+h2.beta = @video.title
 p = @video.description
 .video
   .video-wrapper
     iframe src=@video.video frameborder="0" allowfullscreen
 - if @video.books.count > 0
-  h3.gamma
+  h3.gamma.space--top-2
     | Libri correlati
   - @video.books.each do |book|
     p = link_to book.title, book
+- if @video.tags.count > 0
+  h3.gamma.space--top-2
+    | Tag:  
+  - @video.tags.each do |tag|
+    p = link_to tag.tag, tag

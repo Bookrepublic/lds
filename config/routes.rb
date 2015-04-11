@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :books, only: [:index, :show]
   resources :authors, only: [:index, :show]
-  resources :tags, only: [:show]
+  resources :tags, only: [:show, :index]
   resources :videos, only: [:show, :index]
   resources :images do
     collection do

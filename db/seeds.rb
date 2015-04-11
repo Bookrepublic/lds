@@ -81,3 +81,10 @@ update_records(AuthorVideo, [
   {id:2, author_id: 2, video_id: 2},
   {id:3, author_id: 2, video_id: 3},
 ])
+
+update_records(VideoTag, [
+  {id:1, tag_id: 1, video_id: 1},
+  {id:2, tag_id: 2, video_id: 2},
+  {id:3, tag_id: 1, video_id: 2},
+  {id:4, tag_id: 3, video_id: 3}
+])
