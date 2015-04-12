@@ -12,6 +12,6 @@ class CollectionsController < ApplicationController
   private
 
     def set_collection
-      @collection = Collection.find(params[:id])
+      @collection = Collection.includes(:books).find(params[:id])
     end
 end
