@@ -10,6 +10,7 @@ gem "flutie"
 gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
+gem 'jquery-ui-rails'
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"

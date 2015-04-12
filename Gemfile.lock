@@ -418,6 +418,7 @@ DEPENDENCIES
   high_voltage
   i18n-tasks
   jquery-rails
+  jquery-ui-rails
   launchy
   newrelic_rpm (>= 3.9.8)
   normalize-rails (~> 3.0.0)
