@@ -4,10 +4,14 @@
   h2
     = @post.subtitle
   p
-    = @post.article.html_safe
-  p
-    strong Date:
+    | scritto il 
     = @post.date
-
-- if user_signed_in?
-  = link_to 'Edit', edit_post_path(@post)
+    | da 
+    = @post.user.first_name
+  - if user_signed_in? and @post.user_id == current_user.id
+    p
+      = link_to 'Edit', edit_post_path(@post)
+      |  
+      = link_to 'Destroy', @post, data: {:confirm => 'Are you sure?'}, :method => :delete
+  p
+    = @post.article.html_safe

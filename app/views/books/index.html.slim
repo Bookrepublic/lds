@@ -1,6 +1,6 @@
-h1 Listing books
+h2.alpha Gli imperdibili titoli di LDS
 
-table
+table.table
   thead
     tr
       th Title
@@ -10,12 +10,6 @@ table
       th Pages
       th Isbn
       th Pubblication date
-      th Link bookrepublic
-      th Link amazon
-      th Link kobo
-      th Link apple
-      th
-      th
       th
 
   tbody
@@ -31,8 +25,4 @@ table
         td = book.pages
         td = book.isbn
         td = book.pubblication_date
-        td = book.link_bookrepublic
-        td = book.link_amazon
-        td = book.link_kobo
-        td = book.link_apple
         td = link_to 'Show', book
