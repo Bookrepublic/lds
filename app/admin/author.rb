@@ -1,6 +1,17 @@
 ActiveAdmin.register Author do
 
+  index do
+    selectable_column
+    column "Last name" do |author|
+      link_to author.last_name, admin_author_path(author)
+    end
+    column :first_name
+    actions
+  end
   permit_params :first_name, :last_name, :biography, :avatar
+
+  filter :last_name
+  filter :first_name
 
   form do |f|
     f.inputs 'Author details' do
