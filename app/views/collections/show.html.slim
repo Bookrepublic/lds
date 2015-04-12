@@ -1,0 +1,8 @@
+h2.alpha
+  = @collection.name
+- if @collection.books.count > 0
+  h3.gamma.space--top-2 Tutti i libri di questa categoria
+  - @collection.books.each do |book|
+    h4.delta
+      = link_to book.title, book
+
