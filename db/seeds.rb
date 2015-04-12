@@ -14,6 +14,10 @@ update_records(User, [
   {id: 2, first_name: 'Marco', last_name: 'Ferrario', biography: 'Gli anni 80 non sono \'epoca storica. Gli anni 80 sono uno stato mentale', email: 'marco@ferrario.it', password: 'password123', password_confirmation: 'password123'}
 ])
 
+update_records(AdminUser, [
+  {id: 1, email:'admin@admin.it', password: 'password123', password_confirmation: 'password123'}
+])
+
 update_records(Collection, [
   {id: 1, name: 'Letteratura'},
   {id: 2, name: 'Saggistica'}
