@@ -7,7 +7,12 @@
     | scritto il 
     = @post.date
     | da 
-    = @post.user.first_name
+    = link_to @post.user.first_name, user_path(@post.user)
+  p
+    | tag: 
+    - @post.tags.each do |tag|
+      = link_to tag.tag, tag
+      |  
   - if user_signed_in? and @post.user_id == current_user.id
     p
       = link_to 'Edit', edit_post_path(@post)

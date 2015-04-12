@@ -1,28 +1,25 @@
-h2.alpha Il blog di LDS
+h2.alpha
+  = @user.full_name
 - if user_signed_in?
   p.space--top-2.space--bottom-2
     = link_to 'Ok, sei loggato e puoi scrivere un post. Non smettere mai.', new_post_path
 .formatted-content
-  - @posts.each do |post|
-    h3.beta
+  h3.beta.space--top-2 I post dell'autore
+  - @user.posts.each do |post|
+    h4.gamma.space--top-2
       = link_to post.title, post
-    h4.gamma
-      = post.subtitle
-
     p
-      = post.excerpt.html_safe
-    p
-      | scritto il 
+      | pubblicato il 
       = post.date
-      |  da 
-      = link_to post.user.first_name, user_path(post.user)
     p
       | tag: 
       - post.tags.each do |tag|
         = link_to tag.tag, tag
         |  
+    p
+      = post.excerpt.html_safe
     - if user_signed_in? and post.user_id == current_user.id
-      p
+      p.space--top-2
         = link_to 'Edit', edit_post_path(post)
         |  
         = link_to 'Destroy', post, data: {:confirm => 'Are you sure?'}, :method => :delete
