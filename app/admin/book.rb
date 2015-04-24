@@ -1,6 +1,18 @@
 ActiveAdmin.register Book do
 
+  index do
+    selectable_column
+    column "Title", sortable: :title do |title|
+      link_to title.title, admin_book_path(title)
+    end
+    column :pubblication_date
+    actions
+  end
+
   permit_params :title, :description, :price, :pages, :isbn, :pubblication_date, :link_bookrepublic, :link_amazon, :link_kobo, :link_apple, :cover, :collection_id, author_ids: []
+
+  filter :title
+  filter :pubblication_date, as: :date_range
 
   form do |f|
     f.inputs "Book details" do
