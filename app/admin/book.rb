@@ -1,4 +1,5 @@
 ActiveAdmin.register Book do
+  menu label: 'Libri'
 
   index do
     selectable_column

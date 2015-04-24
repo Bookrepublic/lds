@@ -1,4 +1,5 @@
 ActiveAdmin.register Collection do
+  menu label: 'Collane'
 
   index do
     selectable_column

@@ -1,4 +1,5 @@
 ActiveAdmin.register Author do
+  menu label: "Autori"
 
   index do
     selectable_column
