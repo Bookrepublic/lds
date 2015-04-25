@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425072346) do
+ActiveRecord::Schema.define(version: 20150425073240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,16 @@ ActiveRecord::Schema.define(version: 20150425072346) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "pubblication_writers", force: :cascade do |t|
+    t.integer  "pubblication_id"
+    t.integer  "writer_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pubblication_writers", ["pubblication_id"], name: "index_pubblication_writers_on_pubblication_id", using: :btree
+  add_index "pubblication_writers", ["writer_id"], name: "index_pubblication_writers_on_writer_id", using: :btree
+
   create_table "pubblications", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -268,6 +278,8 @@ ActiveRecord::Schema.define(version: 20150425072346) do
   add_foreign_key "book_videos", "videos"
   add_foreign_key "books", "collections"
   add_foreign_key "posts", "users"
+  add_foreign_key "pubblication_writers", "pubblications"
+  add_foreign_key "pubblication_writers", "writers"
   add_foreign_key "sponsor_videos", "sponsors"
   add_foreign_key "sponsor_videos", "videos"
   add_foreign_key "video_pubblications", "pubblications"
