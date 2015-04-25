@@ -115,7 +115,7 @@ update_records(Pubblication, [
 ])
 
 update_records(Writer, [
-  {id: 1, first_name: "Emilio:", last_name: "Lussu"},
+  {id: 1, first_name: "Emilio", last_name: "Lussu"},
   {id: 2, first_name: 'Thomas', last_name: 'Mann'},
   {id: 3, first_name: 'Herman', last_name: 'Melville'},
   {id: 4, first_name: 'Cass', last_name: 'Sunstein'},
