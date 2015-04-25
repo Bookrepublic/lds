@@ -5,12 +5,12 @@ class VideosController < ApplicationController
   end
 
   def index
-    @videos = Video.all
+    @videos = Video.includes(:sponsors, :writers, :pubblications).all
   end
 
   private
 
     def set_video
-      @video = Video.find(params[:id])
+      @video = Video.includes(:sponsors, :writers, :pubblications).find(params[:id])
     end
 end

@@ -8,12 +8,43 @@ h2.alpha
     .video-wrapper
       iframe src=video.video frameborder="0" allowfullscreen
   - if video.tags.count > 0
-    h3.gamma.space--top-2
-      | Tag:  
+    h4.gamma.space--top-2
+      | Categorie
     - video.tags.each do |tag|
       p = link_to tag.tag, tag
   - if video.sponsors.count > 0
-    h3.gamma.space--top-2
-      | Questo video è stato realizato da:
+    h4.gamma.space--top-2
+      | Il consigliatore
     - video.sponsors.each do |sponsor|
       p = link_to sponsor.full_name, sponsor
+  - if video.pubblications.count > 0
+    h4.gamma.space--top-2
+      | I libri consigliati in questo video
+    - video.pubblications.each do |pubblication|
+      p = pubblication.title
+      - if pubblication.writers.count > 0
+        - pubblication.writers.each do |writer|
+          | di 
+          = writer.first_name
+  - if video.writers.count > 0
+    h4.gamma.space--top-2
+      | Gli autori consigliati in questo video
+    - video.writers.each do |writer|
+      p = writer.first_name
+  - if video.authors.count > 0 or video.books.count > 0
+    h4.gamma.space--top-2
+      | La sezione speciale dedicata ai libri o agli autori  di LDS
+    - if video.books.count > 0
+      h5.space--top-2
+        | I libri
+      - video.books.each do |book|
+        p = link_to book.title, book
+        - if book.authors.count > 0
+          | di 
+          - book.authors.each do |author|
+            = link_to author.full_name, author
+    - if video.authors.count > 0
+      h5.space--top-2
+        | Gli autori
+      - video.authors.each do |author|
+        p = link_to author.full_name, author
