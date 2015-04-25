@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425073240) do
+ActiveRecord::Schema.define(version: 20150425074420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -257,6 +257,16 @@ ActiveRecord::Schema.define(version: 20150425073240) do
   add_index "video_tags", ["tag_id"], name: "index_video_tags_on_tag_id", using: :btree
   add_index "video_tags", ["video_id"], name: "index_video_tags_on_video_id", using: :btree
 
+  create_table "video_writers", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "writer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "video_writers", ["video_id"], name: "index_video_writers_on_video_id", using: :btree
+  add_index "video_writers", ["writer_id"], name: "index_video_writers_on_writer_id", using: :btree
+
   create_table "videos", force: :cascade do |t|
     t.string   "video"
     t.text     "description"
@@ -286,4 +296,6 @@ ActiveRecord::Schema.define(version: 20150425073240) do
   add_foreign_key "video_pubblications", "videos"
   add_foreign_key "video_tags", "tags"
   add_foreign_key "video_tags", "videos"
+  add_foreign_key "video_writers", "videos"
+  add_foreign_key "video_writers", "writers"
 end

@@ -10,5 +10,7 @@ class Video < ActiveRecord::Base
   has_many :sponsors, through: :sponsor_videos
   has_many :video_pubblications
   has_many :pubblications, through: :video_pubblications
+  has_many :video_writers
+  has_many :writers, through: :video_writers
 
 end
