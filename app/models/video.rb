@@ -8,5 +8,7 @@ class Video < ActiveRecord::Base
   has_many :tags, through: :video_tags
   has_many :sponsor_videos
   has_many :sponsors, through: :sponsor_videos
+  has_many :video_pubblications
+  has_many :pubblications, through: :video_pubblications
 
 end

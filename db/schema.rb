@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425071950) do
+ActiveRecord::Schema.define(version: 20150425072346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -227,6 +227,16 @@ ActiveRecord::Schema.define(version: 20150425071950) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "video_pubblications", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "pubblication_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "video_pubblications", ["pubblication_id"], name: "index_video_pubblications_on_pubblication_id", using: :btree
+  add_index "video_pubblications", ["video_id"], name: "index_video_pubblications_on_video_id", using: :btree
+
   create_table "video_tags", force: :cascade do |t|
     t.integer  "video_id"
     t.integer  "tag_id"
@@ -260,6 +270,8 @@ ActiveRecord::Schema.define(version: 20150425071950) do
   add_foreign_key "posts", "users"
   add_foreign_key "sponsor_videos", "sponsors"
   add_foreign_key "sponsor_videos", "videos"
+  add_foreign_key "video_pubblications", "pubblications"
+  add_foreign_key "video_pubblications", "videos"
   add_foreign_key "video_tags", "tags"
   add_foreign_key "video_tags", "videos"
 end
