@@ -105,3 +105,40 @@ update_records(SponsorVideo, [
   {id:3, sponsor_id: 1, video_id: 2},
   {id:4, sponsor_id: 3, video_id: 3}
 ])
+
+update_records(Pubblication, [
+  {id: 1, title:"Un anno sull'altipiano"},
+  {id: 2, title:"La montagna incantata"},
+  {id: 3, title:"Moby dick"},
+  {id: 4, title: "Nudge"},
+  {id: 5, title: 'Un libro inventato senza autore'}
+])
+
+update_records(Writer, [
+  {id: 1, first_name: "Emilio:", last_name: "Lussu"},
+  {id: 2, first_name: 'Thomas', last_name: 'Mann'},
+  {id: 3, first_name: 'Herman', last_name: 'Melville'},
+  {id: 4, first_name: 'Cass', last_name: 'Sunstein'},
+  {id: 5, first_name: 'Richard', last_name: 'Thaler'},
+  {id: 6, first_name: 'Autore', last_name: 'Inventato'}
+])
+
+update_records(PubblicationWriter, [
+  {id: 1, pubblication_id: 1, writer_id: 1},
+  {id: 2, pubblication_id: 2, writer_id: 2},
+  {id: 3, pubblication_id: 3, writer_id: 3},
+  {id: 4, pubblication_id: 4, writer_id: 4},
+  {id: 5, pubblication_id: 4, writer_id: 5}
+])
+
+update_records(VideoPubblication, [
+  {id: 1, pubblication_id: 1, video_id: 1},
+  {id: 2, pubblication_id: 2, video_id: 1},
+  {id: 3, pubblication_id: 3, video_id: 2},
+  {id: 4, pubblication_id: 5, video_id: 3}
+])
+
+update_records(VideoWriter, [
+  {id: 1, writer_id: 4, video_id: 1},
+  {id: 2, writer_id: 6, video_id: 2}
+])
