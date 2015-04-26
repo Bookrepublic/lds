@@ -1,5 +1,4 @@
 class Video < ActiveRecord::Base
-
   has_many :book_videos
   has_many :books, through: :book_videos
   has_many :author_videos
@@ -12,5 +11,4 @@ class Video < ActiveRecord::Base
   has_many :pubblications, through: :video_pubblications
   has_many :video_writers
   has_many :writers, through: :video_writers
-
 end
