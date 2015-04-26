@@ -16,13 +16,16 @@ ActiveAdmin.register Video do
   filter :authors
   filter :created_at
 
-  permit_params :title, :description, :video, tag_ids: [], pubblication_ids: []
+  permit_params :title, :description, :video, tag_ids: [], pubblication_ids: [], sponsor_ids: [], writer_ids: [], book_ids: []
 
   form do |f|
     f.inputs 'Video details' do
       f.input :title
       f.input :description
       f.input :video
+    end
+    f.inputs "Consigliatori" do
+      f.input :sponsors, as: :check_boxes, label: 'Consigliatori', collection: Sponsor.order("last_name ASC").all
     end
     f.inputs "Risorse collegate" do
       f.input :tags, as: :check_boxes, label: 'Categorie', collection: Tag.order("tag ASC").all
