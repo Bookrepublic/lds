@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Lds"
+  config.site_title = "Libreria degli scrittori"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -161,7 +161,6 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_stylesheet.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
-  #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
@@ -187,14 +186,7 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
   #
-  # If you wanted to add a static menu item to the default menu provided:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #     end
-  #   end
-
   # == Download Links
   #
   # You can disable download links on resource listing pages,

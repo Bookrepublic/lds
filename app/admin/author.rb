@@ -3,7 +3,7 @@ ActiveAdmin.register Author do
 
   index do
     selectable_column
-    column "Last name" do |author|
+    column "Last name", sortable: :last_name do |author|
       link_to author.last_name, admin_author_path(author)
     end
     column :first_name

@@ -1,4 +1,20 @@
 ActiveAdmin.register Video do
+  menu parent: 'Video', label: "Video"
+
+  index do
+    selectable_column
+    column 'Title', sortable: :title do |video|
+      link_to video.title, admin_video_path(video)
+    end
+    column :created_at, sortable: :created_at
+  end
+
+  filter :title
+  filter :pubblications
+  filter :writers
+  filter :books
+  filter :authors
+  filter :created_at
 
   permit_params :title, :description, :video, tag_ids: [], pubblication_ids: []
 

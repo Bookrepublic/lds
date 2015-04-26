@@ -1,5 +1,6 @@
 ActiveAdmin.register Tag do
-  menu label: "Categorie per video e post"
+  menu parent: 'Video', label: 'Categorie'
+
   index do
     selectable_column
     column 'Tags', sortable: :tag do |tag|
