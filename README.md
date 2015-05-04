@@ -22,6 +22,10 @@ is [purposefully excluded from the project's `Gemfile`][exclude].
 [foreman]: https://github.com/ddollar/foreman
 [exclude]: https://github.com/ddollar/foreman/pull/437#issuecomment-41110407
 
+## Development
+
+Admin access: admin@admin.it/password123
+
 ## Guidelines
 
 Use the following guides for getting things done, programming well, and
