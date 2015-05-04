@@ -14,7 +14,7 @@ gem 'jquery-ui-rails'
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
-gem "rack-timeout"
+gem "rack-timeout", require: false
 gem "rails", "4.2.1"
 gem "recipient_interceptor"
 gem "refills"
