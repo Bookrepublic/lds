@@ -60,9 +60,9 @@ end
 group :development, :test do
   gem "awesome_print"
   gem "bundler-audit", require: false
-  gem "byebug"
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.1.0"
 end
