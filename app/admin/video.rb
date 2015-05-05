@@ -18,8 +18,9 @@ ActiveAdmin.register Video do
 
   permit_params(
     :title, :description, :video,
-    pubblication_ids: [], sponsor_ids: [], writer_ids: [], book_ids: [],
+    sponsor_ids: [], writer_ids: [], book_ids: [],
     tags_attributes: {tag: nil, _destroy: nil, id: nil},
+    pubblications_attributes: {title: nil, _destroy: nil, id: nil},
   )
 
   form do |f|
@@ -32,8 +33,11 @@ ActiveAdmin.register Video do
       f.input :sponsors, as: :check_boxes, label: 'Consigliatori', collection: Sponsor.order("last_name ASC").all
     end
     f.inputs "Risorse collegate" do
-      f.input :pubblications, as: :check_boxes, label: 'Libri', collection: Pubblication.order("title ASC").all
+      #f.input :pubblications, as: :check_boxes, label: 'Libri', collection: Pubblication.order("title ASC").all
       f.input :writers, as: :check_boxes, label: 'Autori', collection: Writer.order("last_name ASC").all
+      f.has_many :pubblications, allow_destroy: true, new_record: true do |p|
+        p.input :title
+      end
     end
     f.inputs "Categorie" do
       f.has_many :tags, allow_destroy: true, new_record: true do |t|
@@ -50,9 +54,12 @@ ActiveAdmin.register Video do
     def update
       return super if ! params[:video]
       return super if ! params[:video][:tags_attributes]
+      return super if ! params[:video][:pubblications_attributes]
       video = Video.find(params[:id])
       attribs = params[:video].delete(:tags_attributes)
+      attribs_pubblication = params[:video].delete(:pubblications_attributes)
       handle_tagging video, attribs
+      handle_tagging_pubblication video, attribs_pubblication
       super
     end
 
@@ -88,6 +95,32 @@ ActiveAdmin.register Video do
       tag = Tag.where(tag: tagname).first_or_create!
       if ! object.tags.include?(tag)
         object.tags << tag
+      end
+    end
+
+    def handle_tagging_pubblication(object, attribs)
+      attribs.each do |i, a|
+        if a.include?(:id)
+          pubblication = object.pubblications.find(a[:id])
+          if a[:_destroy] == "1"
+            object.pubblications.destroy(pubblication)
+          else
+            if pubblication.title != a[:title]
+              # an existing tag has been edited - substitute
+              object.pubblications.destroy(pubblication)
+              add_pubblication_if_missing object, a[:title]
+            end
+          end
+        else
+          add_pubblication_if_missing object, a[:title]
+        end
+      end
+    end
+
+    def add_pubblication_if_missing(object, pubname)
+      pubblication = Pubblication.where(title: pubname).first_or_create!
+      if ! object.pubblications.include?(pubblication)
+        object.pubblications << pubblication
       end
     end
   end

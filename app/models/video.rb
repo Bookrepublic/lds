@@ -13,4 +13,5 @@ class Video < ActiveRecord::Base
   has_many :writers, through: :video_writers
 
   accepts_nested_attributes_for :tags, allow_destroy: true
+  accepts_nested_attributes_for :pubblications, allow_destroy: true
 end
