@@ -18,9 +18,10 @@ ActiveAdmin.register Video do
 
   permit_params(
     :title, :description, :video,
-    sponsor_ids: [], writer_ids: [], book_ids: [],
+    sponsor_ids: [], book_ids: [],
     tags_attributes: {tag: nil, _destroy: nil, id: nil},
     pubblications_attributes: {title: nil, _destroy: nil, id: nil},
+    writers_attributes: {first_name: nil, last_name: nil, _destroy: nil, id: nil},
   )
 
   form do |f|
@@ -33,10 +34,12 @@ ActiveAdmin.register Video do
       f.input :sponsors, as: :check_boxes, label: 'Consigliatori', collection: Sponsor.order("last_name ASC").all
     end
     f.inputs "Risorse collegate" do
-      #f.input :pubblications, as: :check_boxes, label: 'Libri', collection: Pubblication.order("title ASC").all
-      f.input :writers, as: :check_boxes, label: 'Autori', collection: Writer.order("last_name ASC").all
       f.has_many :pubblications, allow_destroy: true, new_record: true do |p|
         p.input :title
+      end
+      f.has_many :writers, allow_destroy: true, new_record: true do |w|
+        w.input :first_name
+        w.input :last_name
       end
     end
     f.inputs "Categorie" do
@@ -55,11 +58,14 @@ ActiveAdmin.register Video do
       return super if ! params[:video]
       return super if ! params[:video][:tags_attributes]
       return super if ! params[:video][:pubblications_attributes]
+      return super if ! params[:video][:writers_attributes]
       video = Video.find(params[:id])
       attribs = params[:video].delete(:tags_attributes)
       attribs_pubblication = params[:video].delete(:pubblications_attributes)
+      attribs_writer = params[:video].delete(:writers_attributes)
       handle_tagging video, attribs
-      handle_tagging_pubblication video, attribs_pubblication
+      handle_pubblication video, attribs_pubblication
+      handle_writer video, attribs_writer
       super
     end
 
@@ -98,8 +104,8 @@ ActiveAdmin.register Video do
       end
     end
 
-    def handle_tagging_pubblication(object, attribs)
-      attribs.each do |i, a|
+    def handle_pubblication(object, attribs_pubblication)
+      attribs_pubblication.each do |i, a|
         if a.include?(:id)
           pubblication = object.pubblications.find(a[:id])
           if a[:_destroy] == "1"
@@ -121,6 +127,32 @@ ActiveAdmin.register Video do
       pubblication = Pubblication.where(title: pubname).first_or_create!
       if ! object.pubblications.include?(pubblication)
         object.pubblications << pubblication
+      end
+    end
+
+    def handle_writer(object, attribs_writer)
+      attribs_writer.each do |i, a|
+        if a.include?(:id)
+          writer = object.writers.find(a[:id])
+          if a[:_destroy] == "1"
+            object.writers.destroy(writer)
+          else
+            if writer.to_s != a[:to_s]
+              # an existing tag has been edited - substitute
+              object.writers.destroy(writer)
+              add_writer_if_missing object, a[:last_name], a[:first_name]
+            end
+          end
+        else
+          add_writer_if_missing object, a[:last_name], b[:first_name]
+        end
+      end
+    end
+
+    def add_writer_if_missing(object, last_name, first_name)
+      writer = Writer.where(last_name: last_name, first_name: first_name).first_or_create!
+      if ! object.writers.include?(writer)
+        object.writers << writer
       end
     end
   end
