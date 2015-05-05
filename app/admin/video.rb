@@ -56,16 +56,13 @@ ActiveAdmin.register Video do
   controller do
     def update
       return super if ! params[:video]
-      return super if ! params[:video][:tags_attributes]
-      return super if ! params[:video][:pubblications_attributes]
-      return super if ! params[:video][:writers_attributes]
       video = Video.find(params[:id])
       attribs = params[:video].delete(:tags_attributes)
       attribs_pubblication = params[:video].delete(:pubblications_attributes)
       attribs_writer = params[:video].delete(:writers_attributes)
-      handle_tagging video, attribs
-      handle_pubblication video, attribs_pubblication
-      handle_writer video, attribs_writer
+      handle_tagging(video, attribs) if attribs
+      handle_pubblication(video, attribs_pubblication) if attribs_pubblication
+      handle_writer(video, attribs_writer) if attribs_writer
       super
     end
 
@@ -137,14 +134,14 @@ ActiveAdmin.register Video do
           if a[:_destroy] == "1"
             object.writers.destroy(writer)
           else
-            if writer.to_s != a[:to_s]
+            if writer.first_name != a[:firs_name] || writer.last_name != a[:last_name]
               # an existing tag has been edited - substitute
               object.writers.destroy(writer)
               add_writer_if_missing object, a[:last_name], a[:first_name]
             end
           end
         else
-          add_writer_if_missing object, a[:last_name], b[:first_name]
+          add_writer_if_missing object, a[:last_name], a[:first_name]
         end
       end
     end
