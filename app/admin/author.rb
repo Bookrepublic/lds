@@ -9,7 +9,7 @@ ActiveAdmin.register Author do
     column :first_name
     actions
   end
-  permit_params :first_name, :last_name, :biography, :avatar
+  permit_params :first_name, :last_name, :biography, :avatar, :public
 
   filter :last_name
   filter :first_name
@@ -22,6 +22,9 @@ ActiveAdmin.register Author do
     end
     f.inputs 'Author image' do
       f.input :avatar, as: :file
+    end
+    f.inputs 'Pubblico?' do
+      f.input :public
     end
     f.actions
   end
