@@ -10,7 +10,7 @@ ActiveAdmin.register Book do
     actions
   end
 
-  permit_params :title, :description, :price, :pages, :isbn, :pubblication_date, :link_bookrepublic, :link_amazon, :link_kobo, :link_apple, :cover, :collection_id, author_ids: []
+  permit_params :title, :description, :price, :pages, :isbn, :pubblication_date, :public, :link_bookrepublic, :link_amazon, :link_kobo, :link_apple, :cover, :collection_id, author_ids: []
 
   filter :title
   filter :pubblication_date, as: :date_range
@@ -34,6 +34,9 @@ ActiveAdmin.register Book do
     end
     f.inputs "Cover" do
       f.input :cover, as: :file
+    end
+    f.inputs "Public" do
+      f.input :public
     end
     f.inputs "Store" do
       f.input :link_bookrepublic
