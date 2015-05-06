@@ -17,7 +17,7 @@ ActiveAdmin.register Video do
   filter :created_at
 
   permit_params(
-    :title, :description, :video,
+    :title, :description, :video, :public,
     sponsor_ids: [], book_ids: [],
     tags_attributes: {tag: nil, _destroy: nil, id: nil},
     pubblications_attributes: {title: nil, _destroy: nil, id: nil},
@@ -29,6 +29,9 @@ ActiveAdmin.register Video do
       f.input :title
       f.input :description
       f.input :video
+    end
+    f.inputs "Pubblico?" do
+      f.input :public
     end
     f.inputs "Consigliatori" do
       f.input :sponsors, as: :check_boxes, label: 'Consigliatori', collection: Sponsor.order("last_name ASC").all

@@ -15,4 +15,8 @@ class Video < ActiveRecord::Base
   accepts_nested_attributes_for :tags, allow_destroy: true
   accepts_nested_attributes_for :pubblications, allow_destroy: true
   accepts_nested_attributes_for :writers, allow_destroy: true
+
+  scope :published, -> {
+    where(public: true)
+  }
 end
