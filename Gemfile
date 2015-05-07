@@ -44,6 +44,7 @@ gem 'sass'
 source 'https://rails-assets.org' do
   gem 'rails-assets-daviferreira--medium-editor'
   gem 'rails-assets-iacquire-medium-editor-insert-plugin'
+  gem 'rails-assets-bigSlide'
 end
 
 group :development do

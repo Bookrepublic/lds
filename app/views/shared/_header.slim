@@ -1,28 +1,31 @@
 .header
   .wrap
     .header__inner
-      .header__logo
-        p
-          = link_to 'Logo', root_path
+      = link_to root_path do
+        .header__logo
       ul.header__menu
+        li.header__menu__hamburger
+          .menu-link
+            = link_to '#menu' do
+              i.icon--hamburger.icon--large
         li.header__menu__item
-          = link_to 'Libri', books_path
+          = link_to 'La libreria', books_path
         li.header__menu__item
-          = link_to 'Autori', authors_path
-        li.header__menu__item
-          = link_to 'Autori del blog', users_path
-        li.header__menu__item
-          = link_to 'Collane', collections_path
-        li.header__menu__item
-          = link_to 'Blog', posts_path
-        li.header__menu__item
-          = link_to 'Video', videos_path
-        li.header__menu__item
-          = link_to 'Tag', tags_path
-        li.header__menu__item
-          = link_to 'Sponsor', sponsors_path
-        li.header__menu__item
-          - if user_signed_in?
-            = link_to 'LOGOUT', destroy_user_session_path, method: :delete
-          - else
-            = link_to 'SIGN IN', new_user_session_path
+          = link_to 'Gli autori', authors_path
+        /li.header__menu__item
+          /= link_to 'Autori del blog', users_path
+        /li.header__menu__item
+          /= link_to 'Collane', collections_path
+        /li.header__menu__item
+          /= link_to 'Blog', posts_path
+        /li.header__menu__item
+          /= link_to 'Video', videos_path
+        /li.header__menu__item
+          /= link_to 'Tag', tags_path
+        /li.header__menu__item
+          /= link_to 'Sponsor', sponsors_path
+        /li.header__menu__item
+          /- if user_signed_in?
+            /= link_to 'LOGOUT', destroy_user_session_path, method: :delete
+          /- else
+            /= link_to 'SIGN IN', new_user_session_path

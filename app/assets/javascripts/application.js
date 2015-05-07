@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require medium-editor
+//= require bigSlide
 //= require iacquire-medium-editor-insert-plugin
 
 var editor = new MediumEditor('.editable');
@@ -29,4 +30,8 @@ $(function () {
       }
     }
   })
+});
+
+$(function() {
+ $('.menu-link').bigSlide();
 });
