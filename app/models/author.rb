@@ -1,8 +1,8 @@
 class Author < ActiveRecord::Base
 
-  has_many :author_books
+  has_many :author_books, dependent: :destroy
   has_many :books, through: :author_books
-  has_many :author_videos
+  has_many :author_videos, dependent: :destroy
   has_many :videos, through: :author_videos
   has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage/
