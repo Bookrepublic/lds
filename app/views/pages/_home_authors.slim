@@ -1,0 +1,11 @@
+ciao
+h2.alpha.space--top-2
+  | Elenco di tutti gli autori
+.grid
+  - @authors.each do |author|
+    .grid__item.width-6-12.desk-4-12
+      h3.delta
+        = link_to author do
+          = author.first_name
+          |  
+          = author.last_name

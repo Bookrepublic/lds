@@ -1,0 +1,12 @@
+h2.alpha
+  | Elenco di tutti i libri
+.grid
+  - @books.each do |book|
+    .grid__item.width-6-12.desk-4-12
+      h3.delta
+        = link_to book.title, book
+      - if book.authors.count > 0
+        p
+          | by 
+          - book.authors.each do |author|
+            = link_to author.full_name, author
