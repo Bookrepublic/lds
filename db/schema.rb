@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506211439) do
+ActiveRecord::Schema.define(version: 20150508094618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150506211439) do
     t.datetime "cover_updated_at"
     t.integer  "collection_id"
     t.boolean  "public"
+    t.integer  "number"
   end
 
   add_index "books", ["collection_id"], name: "index_books_on_collection_id", using: :btree
