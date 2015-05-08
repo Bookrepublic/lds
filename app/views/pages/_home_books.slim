@@ -1,12 +1,35 @@
-h2.alpha
-  | Elenco di tutti i libri
-.grid
-  - @books.each do |book|
-    .grid__item.width-6-12.desk-4-12
-      h3.delta
-        = link_to book.title, book
-      - if book.authors.count > 0
-        p
-          | by 
-          - book.authors.each do |author|
-            = link_to author.full_name, author
+.home_book
+  .wrap
+    .home_book__inner
+      h2.alpha.align--center
+        | Elenco di tutti i libri
+      p.align--center
+        | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+    .home_book__list
+      .home_book__first_box
+        - @books.slice(0..1).each do |book|
+          h3.delta
+            = link_to book.title, book
+          - if book.authors.count > 0
+            p
+              | by 
+              - book.authors.each do |author|
+                = link_to author.full_name, author
+      .home_book__second_box
+        - @books.slice(2..3).each do |book|
+          h3.delta
+            = link_to book.title, book
+          - if book.authors.count > 0
+            p
+              | by 
+              - book.authors.each do |author|
+                = link_to author.full_name, author
+      .home_book__third_box
+        - @books.slice(4..5).each do |book|
+          h3.delta
+            = link_to book.title, book
+          - if book.authors.count > 0
+            p
+              | by 
+              - book.authors.each do |author|
+                = link_to author.full_name, author

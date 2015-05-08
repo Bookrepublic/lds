@@ -14,6 +14,10 @@ class Book < ActiveRecord::Base
     where(public: true)
   }
 
+  scope :latest, -> {
+    where(public: true).order("number desc").limit(6)
+  }
+
   def cover_url
     read_attribute(:cover_file_name).present? ? cover.url : "http://placehold.it/210x280"
   end
