@@ -12,7 +12,7 @@
             .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
         .home_book__second_box
           - @books.slice(2..3).each do |book|
-            .home_book__item style="background-image:url('#{book.cover_url}')"
+            .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
         .home_book__third_box
           - @books.slice(4..5).each do |book|
-            .home_book__item style="background-image:url('#{book.cover_url}')"
+            .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
