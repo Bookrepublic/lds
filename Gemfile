@@ -46,6 +46,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-daviferreira--medium-editor'
   gem 'rails-assets-iacquire-medium-editor-insert-plugin'
   gem 'rails-assets-bigSlide'
+  gem 'rails-assets-listjs'
 end
 
 group :development do

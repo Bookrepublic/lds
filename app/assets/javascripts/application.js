@@ -15,6 +15,7 @@
 //= require medium-editor
 //= require bigSlide
 //= require iacquire-medium-editor-insert-plugin
+//= require listjs
 
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {
