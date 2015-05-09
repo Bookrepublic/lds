@@ -1,0 +1,106 @@
+.book-excerpt
+  display: block
+  text-decoration: none
+  position: relative
+  top: 0
+  transition: opacity 0.2s ease-out, max-height 0.2s ease-out, top 0.2s ease-out
+
+.book-excerpt__cover
+  box-shadow: 0 2px 7px rgba(black, 0.3)
+  position: relative
+  top: 0
+  height: 188px
+  transition: top 0.3s cubic-bezier(.25, .15, .20, 1), box-shadow 0.3s cubic-bezier(.25, .15, .20, 1)
+  +margin-bottom(1)
+  @extend .cover
+
+  a.book-excerpt:hover &
+    top: -10px
+    box-shadow: 0 10px 20px rgba(black, 0.2)
+
+.book-excerpt__title,
+.book-excerpt__author,
+.book-excerpt__format
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+.book-excerpt__title
+  font-weight: bold
+
+.book-excerpt__author,
+.book-excerpt__format
+  +font-size(smallprint)
+  color: $light-body-color
+
+.book-excerpt__price
+  display: block
+
+.book-excerpt__price__base
+  display: inline-block
+  margin-right: 0.5em
+  color: $light-body-color
+  position: relative
+
+  &:before
+    content: ""
+    height: 2px
+    background-color: lighten($light-body-color, 20%)
+    transform: rotate(-4deg)
+    +position(absolute, 50% -5px null -5px)
+
+.book-excerpt__price__current
+  display: inline-block
+
+.book-excerpt__not-found
+  position: relative
+
+.book-excerpt__not-found:after
+  content: ""
+  display: block
+  padding-top: 140%
+  background-color: #444
+
+.book-excerpt__not-found:before
+  content: "?"
+  color: white
+  font-size: 50px
+  line-height: 50%
+  color: #999
+  text-align: center
+  +center
+
+.book-excerpt__tooltip
+  +center-horizontally
+  top: 80%
+  opacity: 0
+  transition: opacity 0.2s ease-out
+  +padding(1)
+  width: 180px
+  background-color: white
+  box-shadow: 0 3px 10px rgba(black, 0.5)
+  text-align: center
+  z-index: 10
+
+  &:before
+    content: ""
+    +triangle(16px, white, up)
+    +position(absolute, -8px null null 50%)
+    margin-left: -8px
+
+  .no-touch .book-excerpt:hover &
+    opacity: 1
+
+.book-excerpt--variant
+  @extend .book-excerpt
+
+  .book-excerpt__title
+    overflow: normal
+    white-space: normal
+    text-overflow: clip
+    line-height: 1.2
+    +margin-bottom(1)
+
+.book-excerpt__cover
+  .book-excerpt--variant:hover &
+    top: -40px

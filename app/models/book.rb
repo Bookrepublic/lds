@@ -12,7 +12,7 @@ class Book < ActiveRecord::Base
   validates_attachment_content_type :cover, content_type: /\Aimage/
 
   scope :published, -> {
-    where(public: true)
+    where(public: true).order("number desc")
   }
 
   scope :latest, -> {

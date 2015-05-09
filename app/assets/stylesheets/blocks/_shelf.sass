@@ -1,0 +1,38 @@
+.shelf
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  align-items: flex-end
+  align-items: center
+  justify-content: center
+  margin-left: - $grid-gutter * 0.5
+  margin-right: - $grid-gutter * 0.5
+
+.shelf__item
+  align-self: flex-end
+  width: 120px
+  margin-left: $grid-gutter * 0.5
+  margin-right: $grid-gutter * 0.5
+  +margin-bottom(2)
+
+.shelf__more
+  width: 100%
+  text-align: center
+  color: $light-body-color
+  +vertical-padding(3)
+
+.shelf--bigger
+  @extend .shelf
+
++at-breakpoint(lap)
+  .shelf
+    margin-left: - $grid-gutter
+    margin-right: - $grid-gutter
+
+  .shelf__item
+    margin-left: $grid-gutter
+    margin-right: $grid-gutter
+    +margin-bottom(4)
+
+    .shelf--bigger &
+      width: 165px

@@ -1,28 +1,13 @@
 h2.alpha Gli imperdibili titoli di LDS
-
-table.table
-  thead
-    tr
-      th Title
-      th Authors
-      th Description
-      th Price
-      th Pages
-      th Isbn
-      th Pubblication date
-      th
-
-  tbody
-    - @books.each do |book|
-      tr
-        td = link_to book.title, book
-        - if book.authors.count > 0
-          td
-            - book.authors.each do |author|
-              = link_to author.full_name, author
-        td = book.description
-        td = book.price
-        td = book.pages
-        td = book.isbn
-        td = book.pubblication_date
-        td = link_to 'Show', book
+.shelf
+  - @books.each do |book|
+    .shelf__item
+      = link_to(book, class: 'book-excerpt') do
+        .book-excerpt__inner
+          .book-excerpt__cover style="background-image: url('#{book.cover.url(:thumb)}')"
+          .book-excerpt__title = book.title
+          - if book.authors.count > 0
+            .book-excerpt__author
+              = book.authors.map(&:full_name).join(', ')
+          - else
+            .book-excertp__author &nbsp
