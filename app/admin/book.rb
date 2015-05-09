@@ -7,6 +7,8 @@ ActiveAdmin.register Book do
       link_to title.title, admin_book_path(title)
     end
     column :pubblication_date
+    column :number
+    column :public
     actions
   end
 

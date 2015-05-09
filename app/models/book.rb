@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
 
-  validates :title, :description, presence: true
+  validates :title, :number, :description, presence: true
+  validates :number, :isbn, uniqueness: true
 
   belongs_to :collection
   has_many :author_books, dependent: :destroy
