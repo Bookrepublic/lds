@@ -25,7 +25,6 @@ gem "unicorn"
 gem 'devise'
 gem 'cancancan'
 gem 'image_optim_bin'
-gem 'image_optim_pack'
 
 # Paperclip
 
