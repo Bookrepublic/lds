@@ -36,3 +36,9 @@ $(function () {
 $(function() {
  $('.menu-link').bigSlide();
 });
+
+//List Books Index
+var options = {
+  valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number']
+};
+var entryList = new List('books_list', options);

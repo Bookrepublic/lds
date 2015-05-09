@@ -1,13 +1,29 @@
-h2.alpha Gli imperdibili titoli di LDS
-.shelf
-  - @books.each do |book|
-    .shelf__item
-      = link_to(book, class: 'book-excerpt') do
-        .book-excerpt__inner
-          .book-excerpt__cover style="background-image: url('#{book.cover.url(:thumb)}')"
-          .book-excerpt__title = book.title
-          - if book.authors.count > 0
-            .book-excerpt__author
-              = book.authors.map(&:full_name).join(', ')
-          - else
-            .book-excertp__author &nbsp
+.wrap
+  h1.align--center.alpha Gli imperdibili titoli di LDS
+
+#books_list
+  .wrap
+    .search
+      .search__body
+        .search__top
+          .search__top__inner
+            .search__top__input
+              input placeholder="Il catalogo di LDS..." type="text"
+
+  .shelf
+    .wrap
+      ul.list
+        - @books.each do |book|
+          .shelf__item
+            = link_to(book, class: 'book-excerpt') do
+              li.book-excerpt__inner
+                .book-excerpt__cover style="background-image: url('#{book.cover.url(:thumb)}')"
+                .book-excerpt__title = book.title
+                .book-excerpt__number.hidden = book.number
+                - if book.authors.count > 0
+                  .book-excerpt__last-name.hidden
+                    = book.authors.map(&:last_name)
+                  .book-excerpt__author
+                    = book.authors.map(&:full_name).join(', ')
+                - else
+                  .book-excertp__author &nbsp
