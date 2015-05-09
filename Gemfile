@@ -24,11 +24,14 @@ gem "uglifier"
 gem "unicorn"
 gem 'devise'
 gem 'cancancan'
+gem 'image_optim_bin'
+gem 'image_optim_pack'
 
 # Paperclip
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'paperclip-optimizer'
 
 # Activeadmin
 
