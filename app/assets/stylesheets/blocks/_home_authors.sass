@@ -1,0 +1,59 @@
+.home_authors
+  display: block
+  position: relative
+  text-decoration: none
+  background-color: #e6e6e6
+
+  a
+    text-decoration: none
+
+.home_authors__inner
+  @extend .home_book__inner
+
+.home_authors__title
+  @extend .home_book__title
+
+.home_authors__infos
+  @extend .home_book__infos
+
+.home_authors__list
+  margin: auto
+  transition-property: top
+  display: flex
+  flex-direction: row
+  justify-content: center
+  flex-wrap: nowrap
+  align-items: flex-end
+
+.home_authors__first_box
+  @extend .home_book__first_box
+
+.home_authors__second_box
+  @extend .home_book__second_box
+
+.home_authors__third_box
+  @extend .home_book__third_box
+
+.home_authors__item
+  @extend .author
+  display: inline-block
+  margin: 0 15px
+  position: relative
+  width: 125px
+  height: 125px
+  background-size: cover
+  background-position: top center
+  background-color: #4d4d4d
+  box-shadow: 0 2px 5px rgba(black, 0.5)
+  transform: scale(1)
+  position: relative
+  top: 0px
+
+.home_authors__name
+  @extend .book-excerpt__title
+  display: block
+  position: absolute
+  bottom: -45%
+  left: 0
+  right: 0
+  margin: auto
