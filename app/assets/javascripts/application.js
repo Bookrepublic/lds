@@ -39,6 +39,18 @@ $(function() {
 
 //List Books Index
 var options = {
-  valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number']
+  valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number', 'book-excerpt__author']
 };
 var entryList = new List('books_list', options);
+
+//Add class to search
+var search = $(".search__sort");
+
+$(".or__item").click(function (e) {
+  e.preventDefault();
+  if(search.hasClass("is-open")) {
+    search.removeClass("is-open");
+  } else {
+    search.addClass("is-open");
+  };
+});
