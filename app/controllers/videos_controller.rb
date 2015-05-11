@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   end
 
   def index
-    @videos = Video.includes(:sponsors, :writers, :pubblications).published.all
+    @videos = Video.includes(:sponsors, :writers, :pubblications).published
   end
 
   private

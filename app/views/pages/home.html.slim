@@ -1,10 +1,6 @@
 = render "home_books"
 = render "home_authors"
-h2.alpha.space--top-2
-  | Elenco degli utenti che possono scrivere sul blog
-- @users.each do |user|
-  h3.delta
-    =link_to user.full_name, user
+= render "home_video"
 h2.alpha.space--top-2
   | Elenco dei post
 - @posts.each do |post|

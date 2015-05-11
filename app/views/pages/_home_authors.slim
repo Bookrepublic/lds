@@ -17,6 +17,14 @@
           .home_authors__second_box
             - @authors.slice(2..3).each do |a|
               .home_authors__item style="background-image: url('#{a.avatar.url(:thumb)}')"
+                .home_authors__name
+                  = a.first_name
+                  br
+                  = a.last_name
           .home_authors__third_box
             - @authors.slice(4..5).each do |a|
               .home_authors__item style="background-image: url('#{a.avatar.url(:thumb)}')"
+                .home_authors__name
+                  = a.first_name
+                  br
+                  = a.last_name

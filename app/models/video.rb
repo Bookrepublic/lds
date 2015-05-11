@@ -19,4 +19,8 @@ class Video < ActiveRecord::Base
   scope :published, -> {
     where(public: true)
   }
+
+  scope :home_video, -> {
+    where(public: true).order("RANDOM()").limit(1)
+  }
 end

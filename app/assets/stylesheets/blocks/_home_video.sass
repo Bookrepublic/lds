@@ -1,0 +1,41 @@
+.home_video
+  display: block
+  position: relative
+  overflow: hidden
+  text-decoration: none
+
+  a
+    text-decoration: noe
+
+.home_video__inner
+  margin: auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  +at-breakpoint(desk)
+    flex-direction: row
+
+.home_video__item
+  width: 100%
+  margin: auto
+  text-align: center
+  position: relative
+  +vertical-padding(3)
+
+.home_video__item__text
+  +padding(2)
+
+.home_video__item__title
+  @extend .home_book__title
+
+.home_video__item__infos
+  @extend .home_book__infos
+  padding-bottom: 0px
+
+.home_video__item__video
+  @extend .video
+
+  +at-breakpoint(desk)
+    width: 1200px
