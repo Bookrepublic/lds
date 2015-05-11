@@ -1,4 +1,6 @@
 class Video < ActiveRecord::Base
+  validates :video, presence: true
+
   has_many :book_videos
   has_many :books, through: :book_videos
   has_many :author_videos

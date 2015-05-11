@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     def all_info
       case params[:id]
       when 'home'
-        @books = Book.latest.includes(:authors)
+        @books = Book.latest
         @authors = Author.random
         @posts = Post.includes(:user, :tags).published
         @videos = Video.home_video.first

@@ -1,38 +1,38 @@
-.book-excerpt
+.video-excerpt
   display: block
   text-decoration: none
   position: relative
   top: 0
   transition: opacity 0.2s ease-out, max-height 0.2s ease-out, top 0.2s ease-out
 
-.book-excerpt__cover
+.video-excerpt__cover
   box-shadow: 0 2px 7px rgba(black, 0.3)
   position: relative
   background-size: cover
   background-position: top center
   top: 0
-  height: 188px
+  height: 180px
   transition: top 0.3s cubic-bezier(.25, .15, .20, 1), box-shadow 0.3s cubic-bezier(.25, .15, .20, 1)
   +margin-bottom(1)
-  @extend .cover
+  @extend .video-thumb
 
-  a.book-excerpt:hover &
+  a.video-excerpt:hover &
     top: -10px
     box-shadow: 0 10px 20px rgba(black, 0.2)
 
-.book-excerpt__title,
-.book-excerpt__author,
+.video-excerpt__title,
+.video-excerpt__author,
   overflow: hidden
   white-space: nowrap
   text-overflow: ellipsis
 
-.book-excerpt__title
+.video-excerpt__title
   font-weight: bold
 
-.book-excerpt__author,
+.video-excerpt__infos
   +font-size(smallprint)
   color: $light-body-color
 
-.book-excerpt__cover
-  .book-excerpt--variant:hover &
+.video-excerpt__cover
+  .video-excerpt--variant:hover &
     top: -40px

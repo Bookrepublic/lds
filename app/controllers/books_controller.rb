@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.published
+    @books = Book.published.includes(:authors)
   end
 
   # GET /books/1

@@ -2,7 +2,7 @@ class AuthorsController < InheritedResources::Base
   before_action :set_author, only: [:show]
 
   def index
-    @authors = Author.published
+    @authors = Author.published.order("last_name asc")
   end
 
   private

@@ -4,6 +4,9 @@
   &.is-active
     display: block
 
+  a
+    text-decoration: none
+
 .dialog:before
   +position(fixed, 0 null null 0)
   content: ""
@@ -21,7 +24,6 @@
   max-height: 90%
   z-index: 1002
   box-sizing: border-box
-  -webkit-overflow-scrolling: touch
   background-color: white
   overflow-y: auto
 
@@ -34,3 +36,8 @@
   top: 0
   right: 0
 
+  &:before
+    display: block
+    line-height: 40px
+    font-size: 40px
+    @extend .icon--cross:before

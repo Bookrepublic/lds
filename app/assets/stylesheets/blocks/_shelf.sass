@@ -2,8 +2,7 @@
   display: flex
   flex-direction: row
   flex-wrap: wrap
-  align-items: flex-end
-  align-items: center
+  align-items: flex-start
   justify-content: center
   margin-left: - $grid-gutter * 0.5
   margin-right: - $grid-gutter * 0.5
@@ -12,20 +11,19 @@
     @extend .shelf
 
 .shelf__item
-  align-self: flex-end
   width: 125px
   margin-left: $grid-gutter * 0.5
   margin-right: $grid-gutter * 0.5
   +margin-bottom(2)
+
+.shelf--bigger
+  width: 320px
 
 .shelf__more
   width: 100%
   text-align: center
   color: $light-body-color
   +vertical-padding(3)
-
-.shelf--bigger
-  @extend .shelf
 
 +at-breakpoint(lap)
   .shelf
@@ -38,4 +36,4 @@
     +margin-bottom(4)
 
     .shelf--bigger &
-      width: 165px
+      width: 320px

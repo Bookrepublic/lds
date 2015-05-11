@@ -17,46 +17,77 @@
 //= require iacquire-medium-editor-insert-plugin
 //= require listjs
 
+
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {
   $("#post_" + $(this).attr("data-field-id")).val($(this).html());
 });
 
-$(function () {
-  $(".editable").mediumInsert({
-    editor: editor,
-    addons: {
-      images: {
-        imagesUploadScript: "/images/post_image"
-      }
+$(".editable").mediumInsert({
+  editor: editor,
+  addons: {
+    images: {
+      imagesUploadScript: "/images/post_image"
     }
-  })
+  }
 });
+
 
 $(function() {
  $('.menu-link').bigSlide();
 });
 
 //List Books Index
-var options = {
-  valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number', 'book-excerpt__author']
-};
-var entryList = new List('books_list', options);
+$(function() {
+  var options = {
+    valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number', 'book-excerpt__author']
+  };
+  var entryList = new List('books_list', options);
+});
 
-//List Authors Index
-var author_index = {
-  valueNames: ['author-excerpt__first', 'author-excerpt__last']
-};
-var entryList = new List('authors_list', author_index);
+//List Authors Inde
+$(function() {
+  var author_index = {
+    valueNames: ['author-excerpt__first', 'author-excerpt__last']
+  };
+  var entryList = new List('authors_list', author_index);
+});
+
+//List Videos Index
+$(function() {
+  var video_index = {
+    valueNames: ['video-excerpt__title', 'vtag', 'author-excerpt__last']
+  };
+  var entryList = new List('videos_list', video_index);
+});
 
 //Add class to search
-var search = $(".search__sort");
+$(function() {
+  var search = $(".search__sort");
 
-$(".or__item").click(function (e) {
-  e.preventDefault();
-  if(search.hasClass("is-open")) {
-    search.removeClass("is-open");
-  } else {
-    search.addClass("is-open");
-  };
+  $(".or__item").click(function (e) {
+    e.preventDefault();
+    if(search.hasClass("is-open")) {
+      search.removeClass("is-open");
+    } else {
+      search.addClass("is-open");
+    };
+  });
+});
+
+// Toggle
+document.addEventListener('DOMContentLoaded', function(){
+  var elements = document.querySelectorAll('[data-class-toggle]');
+
+  Array.prototype.forEach.call(elements, function(el, i) {
+    var classToToggle = el.getAttribute('data-class-toggle');
+    var elToToggle = document.querySelector(el.getAttribute('data-element'));
+
+    el.addEventListener('click', function(e) {
+      var method = elToToggle.classList.contains(classToToggle) ? 'remove' : 'add';
+      elToToggle.classList[method](classToToggle);
+      e.stopPropagation();
+      e.preventDefault();
+    });
+  });
 });

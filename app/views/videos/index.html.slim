@@ -1,50 +1,89 @@
-h2.alpha
- | Tutti i video del sito
-- @videos.each do |video|
-  h3.beta.space--top-2
-    =link_to video.title, video
-  p = video.description
-  .video
-    .video-wrapper
-      iframe src=video.video frameborder="0" allowfullscreen
-  - if video.tags.count > 0
-    h4.gamma.space--top-2
-      | Categorie
-    - video.tags.each do |tag|
-      p = link_to tag.tag, tag
-  - if video.sponsors.count > 0
-    h4.gamma.space--top-2
-      | Il consigliatore
-    - video.sponsors.each do |sponsor|
-      p = link_to sponsor.full_name, sponsor
-  - if video.pubblications.count > 0
-    h4.gamma.space--top-2
-      | I libri consigliati in questo video
-    - video.pubblications.each do |pubblication|
-      p = pubblication.title
-      - if pubblication.writers.count > 0
-        - pubblication.writers.each do |writer|
-          | di 
-          = writer.first_name
-  - if video.writers.count > 0
-    h4.gamma.space--top-2
-      | Gli autori consigliati in questo video
-    - video.writers.each do |writer|
-      p = writer.first_name
-  - if video.authors.count > 0 or video.books.count > 0
-    h4.gamma.space--top-2
-      | La sezione speciale dedicata ai libri o agli autori  di LDS
-    - if video.books.count > 0
-      h5.space--top-2
-        | I libri
-      - video.books.each do |book|
-        p = link_to book.title, book
-        - if book.authors.count > 0
-          | di 
-          - book.authors.each do |author|
-            = link_to author.full_name, author
-    - if video.authors.count > 0
-      h5.space--top-2
-        | Gli autori
-      - video.authors.each do |author|
-        p = link_to author.full_name, author
+.wrap
+  h1.align--center.alpha Tutti i video
+
+#videos_list
+  .wrap
+    .search
+      .search__body
+        .search__top
+          .search__top__inner
+            .search__top__input
+              input placeholder="I video di LDS..." type="text"
+              .search__sort-bar
+                .or
+                  .or__item
+                    | Ordina per
+                    .search__sort
+                      .search__sort__selected
+                      ul.search__sort__items
+                        li.search__sort__item.sort data-sort="author-excerpt__last"
+                          | nome
+        .search__top
+          .search__top__inner
+            .search__sort-bar__inner.align--center
+              a.button href="#" data-element=".dialog" data-class-toggle="is-active"
+                | Filtra i video
+              #second-dialog.dialog
+                .dialog__frame
+                  a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
+                  .dialog__body
+                    - @videos.each do |video|
+                      - if video.tags.count > 0
+                        - video.tags.each do |t|
+                          a href="#" data-list-filter="enabled" data-list-filter-target="list" data-list-filter-column="ftag" data-list-filter-compare="==" data-list-filter-value="#{t.tag}"
+                            | Fitrlo 
+
+    .shelf
+      ul.list data-cols='["ftag", "ftitle"]'
+        - @videos.each do |video|
+          .shelf__item.shelf--bigger
+            = link_to(video, class: 'video-excerpt') do
+              li.video-excerpt__inner
+                .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
+                .video-excerpt__title = video.title
+                .video-excerpt__infos
+                  | di 
+                  - if video.tags.count > 0
+                    = video.tags.map(&:tag).join(", ")
+                    .vtag.hidden
+                      - video.tags.each do |t|
+                        span.ftag = t.tag
+
+
+
+                /- if video.sponsors.count > 0
+                  /h4.gamma.space--top-2
+                    /| Il consigliatore
+                  /- video.sponsors.each do |sponsor|
+                    /p = link_to sponsor.full_name, sponsor
+                /- if video.pubblications.count > 0
+                  /h4.gamma.space--top-2
+                    /| I libri consigliati in questo video
+                  /- video.pubblications.each do |pubblication|
+                    /p = pubblication.title
+                    /- if pubblication.writers.count > 0
+                      /- pubblication.writers.each do |writer|
+                        /| di 
+                        /= writer.first_name
+                /- if video.writers.count > 0
+                  /h4.gamma.space--top-2
+                    /| Gli autori consigliati in questo video
+                  /- video.writers.each do |writer|
+                    /p = writer.first_name
+                /- if video.authors.count > 0 or video.books.count > 0
+                  /h4.gamma.space--top-2
+                    /| La sezione speciale dedicata ai libri o agli autori  di LDS
+                  /- if video.books.count > 0
+                    /h5.space--top-2
+                      /| I libri
+                    /- video.books.each do |book|
+                      /p = link_to book.title, book
+                      /- if book.authors.count > 0
+                        /| di 
+                        /- book.authors.each do |author|
+                          /= link_to author.full_name, author
+                  /- if video.authors.count > 0
+                    /h5.space--top-2
+                      /| Gli autori
+                    /- video.authors.each do |author|
+                      /p = link_to author.full_name, author
