@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -16,7 +17,7 @@
 //= require bigSlide
 //= require iacquire-medium-editor-insert-plugin
 //= require listjs
-
+//= require typed
 
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {
@@ -91,3 +92,44 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+
+
+// Typed
+
+
+$(function(){
+
+  $("#home_h1").typed({
+      strings: ["Un bel sito per LDS"],
+      typeSpeed: 30,
+      backDelay: 500,
+      loop: false,
+      contentType: 'html', // or text
+      // defaults to false for infinite loop
+      loopCount: false,
+      callback: function(){ foo(); },
+      resetCallback: function() { newTyped(); }
+  });
+
+  $("#home_h4").typed({
+      strings: ["Cose che non ho, cose che non avrei potuto avere mai."],
+      typeSpeed: 30,
+      backDelay: 500,
+      loop: false,
+      contentType: 'html', // or text
+      // defaults to false for infinite loop
+      loopCount: false,
+
+  });
+
+  $(".reset").click(function(){
+      $("#typed").typed('reset');
+  });
+
+});
+
+function newTyped(){ /* A new typed object */ }
+
+function foo(){ console.log("Callback"); }
+
+

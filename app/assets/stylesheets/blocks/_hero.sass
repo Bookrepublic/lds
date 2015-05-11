@@ -4,6 +4,7 @@
   background-color: $light-bg-color
   background-size: cover
   position: relative
+  color: white
 
 .hero__body
   display: table
@@ -13,17 +14,22 @@
 .hero__body__inner
   display: table-cell
   vertical-align: middle
-  +vertical-padding(4)
+  +vertical-padding(18)
+  background: url('/img/home-header.jpg') no-repeat left center
+  border-bottom: 1px solid $border-color
 
-.hero__heading
+
+
+#home_h1
   +heading-font-family
   +font-size(alpha)
   line-height: 1.2
   margin-left: auto
   margin-right: auto
   max-width: 800px
+  text-transform: uppercase
 
-.hero__text
+#home_h4
   +heading-font-family
   +font-size(gamma)
   +margin-top(2)
