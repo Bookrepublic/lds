@@ -57,7 +57,7 @@ $(function() {
 //List Videos Index
 $(function() {
   var video_index = {
-    valueNames: ['video-excerpt__title', 'vtag', 'author-excerpt__last']
+    valueNames: ['video-excerpt__title', 'vtag', 'vsponsor', 'vbook', 'vpubblication', 'vwriter', 'vauthor']
   };
   var entryList = new List('videos_list', video_index);
 });
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // Typed
 
-
 $(function(){
 
   $("#home_h1").typed({
@@ -128,8 +127,4 @@ $(function(){
 
 });
 
-function newTyped(){ /* A new typed object */ }
-
-function foo(){ console.log("Callback"); }
-
-
+function newTyped(){ /* A new typed object */ };
