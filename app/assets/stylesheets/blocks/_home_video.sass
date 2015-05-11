@@ -4,24 +4,35 @@
   overflow: hidden
   text-decoration: none
 
+  +at-breakpoint(desk)
+    height: 375px
+
+  +at-breakpoint(wall)
+    height: 600px
+
   a
     text-decoration: none
 
 .home_video__inner
   margin: auto
   display: flex
-  flex-direction: column
+  flex-direction: column-reverse
   justify-content: center
   align-items: center
 
   +at-breakpoint(desk)
+    +position(absolute, 0 0 0 0)
+    transform: translate(-25%, 0)
+    transition: all 1s ease-in-out
     flex-direction: row
+
+    .home_video:hover &
+      transform: translateX(0%)
 
 .home_video__item
   width: 100%
   margin: auto
   text-align: center
-  position: relative
   +vertical-padding(3)
 
 .home_video__item__text
@@ -36,6 +47,3 @@
 
 .home_video__item__video
   @extend .video
-
-  +at-breakpoint(desk)
-    width: 1200px

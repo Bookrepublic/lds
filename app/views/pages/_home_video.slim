@@ -3,13 +3,13 @@
     .wrap
       .home_video__inner
         .home_video__item
+          .home_video__item__video
+            .video
+              .video-wrapper
+                iframe src=@videos.video frameborder="0" allowfullscreen
+        .home_video__item
           .home_video__item__text
             h2.home_video__item__title
               | Titolo
             p.home_video__item__infos
               | lorem ipsum lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-        .home_video__item
-          .home_video__item__video
-            .video
-              .video-wrapper
-                iframe src=@videos.video frameborder="0" allowfullscreen
