@@ -3,22 +3,35 @@
 
 #videos_list
   .wrap
-    = render "shared/search", placeholder: "I video di LDS"
-      ul.search__sort__items
-        li.search__sort__item.sort data-sort="author-excerpt__last"
-          | nome
-    .search__top
-      .search__top__inner--small
-        .search__sort-bar__inner.align--center
-          a.button href="#" data-element=".dialog" data-class-toggle="is-active"
-            | Filtra i video
-          #second-dialog.dialog
-            .dialog__frame
-              a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
-              .dialog__body
-                - @videos.each do |video|
-                  - if video.tags.count > 0
-                    - video.tags.each do |t|
+    .search
+      .search__body
+        .search__top
+          .search__top__inner
+            .search__top__input
+              input placeholder="Tutti i video di LDS..." type="text"
+              .search__sort-bar
+                .or
+                  .or__item
+                    | Ordina per
+                    .search__sort
+                      .search__sort__selected
+                        ul.search__sort__items
+                          li.search__sort__item.sort data-sort="video-excerpt__created"
+                            | uscita
+                          li.search__sort__item.sort data-sort="video-excerpt__title"
+                            | titolo
+        .search__top
+          .search__top__inner--small
+            .search__sort-bar__inner.align--center
+              a.button href="#" data-element=".dialog" data-class-toggle="is-active"
+                | Filtra i video
+              #second-dialog.dialog
+                .dialog__frame
+                  a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
+                  .dialog__body
+                    - @videos.each do |video|
+                      - if video.tags.count > 0
+                        - video.tags.each do |t|
 
     .shelf
       ul.list
@@ -27,6 +40,7 @@
             = link_to(video, class: 'video-excerpt') do
               li.video-excerpt__inner
                 .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
+                .video-excerpt__created.hidden = video.created_at
                 .video-excerpt__title = video.title
                 - if video.sponsors.count > 0
                   .video-excerpt__infos

@@ -19,7 +19,7 @@ class Video < ActiveRecord::Base
   accepts_nested_attributes_for :writers, allow_destroy: true
 
   scope :published, -> {
-    where(public: true)
+    where(public: true).order("created_at desc")
   }
 
   scope :home_video, -> {
