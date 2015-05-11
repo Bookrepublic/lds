@@ -43,6 +43,12 @@ var options = {
 };
 var entryList = new List('books_list', options);
 
+//List Authors Index
+var author_index = {
+  valueNames: ['author-excerpt__first', 'author-excerpt__last']
+};
+var entryList = new List('authors_list', author_index);
+
 //Add class to search
 var search = $(".search__sort");
 

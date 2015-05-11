@@ -1,8 +1,31 @@
-h1.alpha Listing authors
+.wrap
+  h1.align--center.alpha Listing authors
 
-- @authors.each do |author|
-  h2.gamma.space--top-2
-    = link_to author.full_name, author
-  = author.biography
-  p
-    = image_tag author.avatar_url
+#authors_list
+  .wrap
+    .search
+      .search__body
+        .search__top
+          .search__top__inner
+            .search__top__input
+              input placeholder="Gli autori di LDS..." type="text"
+              .search__sort-bar
+                .search__sort-bar__inner
+                  .or
+                    .or__item
+                      | Ordina per
+                      .search__sort
+                        .search__sort__selected
+                        ul.search__sort__items
+                          li.search__sort__item.sort data-sort="author-excerpt__last"
+                            | nome
+
+    .shelf
+      ul.list
+        - @authors.each do |author|
+          .shelf__item
+            = link_to(author, class: 'author-excerpt') do
+              li.author-excerpt__inner
+                .author-excerpt__cover style="background-image: url('#{author.avatar.url(:thumb)}')"
+                .author-excerpt__first = author.first_name
+                .author-excerpt__last = author.last_name
