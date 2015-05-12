@@ -8,7 +8,7 @@
         .search__top
           .search__top__inner
             .search__top__input
-              input placeholder="Tutti i video di LDS..." type="text"
+              input placeholder="Tutti i video di LDS..." type="text" id="quicksearch"
               .search__sort-bar
                 .or
                   .or__item
@@ -33,7 +33,7 @@
                       - if video.tags.count > 0
                         - video.tags.each do |t|
 
-    .shelf#isotope
+    .shelf.isotope
       ul
         - @videos.each do |video|
           .shelf__item.shelf--bigger

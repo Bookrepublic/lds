@@ -4,6 +4,12 @@
   position: relative
   top: 0
   transition: opacity 0.2s ease-out, max-height 0.2s ease-out, top 0.2s ease-out
+  margin-left: $grid-gutter * 0.5
+  margin-right: $grid-gutter * 0.5
+
+  +at-breakpoint(lap)
+    margin-left: $grid-gutter
+    margin-right: $grid-gutter
 
 .video-excerpt__cover
   box-shadow: 0 2px 7px rgba(black, 0.3)

@@ -18,7 +18,13 @@
   +margin-bottom(2)
 
 .shelf--bigger
-  width: 33%
+  width: 100%
+
+  +at-breakpoint(lap)
+    width: 50%
+
+  +at-breakpoint(desk)
+    width: 33%
 
 .shelf__more
   width: 100%

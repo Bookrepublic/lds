@@ -48,20 +48,12 @@ $(function() {
   var entryList = new List('books_list', options);
 });
 
-//List Authors Inde
+//List Authors Index
 $(function() {
   var author_index = {
     valueNames: ['author-excerpt__first', 'author-excerpt__last']
   };
   var entryList = new List('authors_list', author_index);
-});
-
-//List Videos Index
-$(function() {
-  var video_index = {
-    valueNames: ['video-excerpt__title', 'vtag', 'vsponsor', 'vbook', 'vpubblication', 'vwriter', 'vauthor']
-  };
-  var entryList = new List('videos_list', video_index);
 });
 
 //Add class to search
