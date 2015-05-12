@@ -1,6 +1,6 @@
 class Sponsor < ActiveRecord::Base
 
-  has_many :sponsor_videos
+  has_many :sponsor_videos, dependent: :destroy
   has_many :videos, through: :sponsor_videos
 
   def full_name

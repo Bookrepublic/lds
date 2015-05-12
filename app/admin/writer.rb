@@ -7,6 +7,7 @@ ActiveAdmin.register Writer do
       link_to writer.last_name, admin_writer_path(writer)
     end
     column :first_name, sortable: :first_name
+    actions
   end
 
   filter :last_name
@@ -14,6 +15,10 @@ ActiveAdmin.register Writer do
   filter :pubblications
 
   permit_params :last_name, :first_name, pubblication_ids: []
+
+  action_item :view, only: :show do
+    link_to 'New author', new_admin_writer_path
+  end
 
   form do |f|
     f.inputs 'Writer details' do

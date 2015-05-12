@@ -13,6 +13,10 @@ ActiveAdmin.register Tag do
 
   filter :tag
 
+  action_item :view, only: :show do
+    link_to 'New tag', new_admin_tag_path
+  end
+
   form do |f|
     f.inputs 'Tags detail' do
       f.input :tag

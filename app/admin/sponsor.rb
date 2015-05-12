@@ -7,13 +7,18 @@ ActiveAdmin.register Sponsor do
       link_to sponsor.last_name, admin_sponsor_path(sponsor)
     end
     column :first_name, sortable: :first_name
+    actions
   end
 
   filter :last_name
   filter :first_name
   filter :videos
 
-  permit_params :last_name, :first_name, :ibiography, video_ids: []
+  permit_params :last_name, :first_name, :biography, video_ids: []
+
+  action_item :view, only: :show do
+    link_to 'New sponsor', new_admin_sponsor_path
+  end
 
   form do |f|
     f.inputs 'Sponsor details' do
