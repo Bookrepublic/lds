@@ -19,6 +19,7 @@ html
           = link_to 'La libreria', books_path
         li.align--left.space--top-2
           = link_to 'Gli autori', authors_path
+
     = render 'shared/header'
     - if flash.any?
       .wrap.space--top-2.space--bottom-2
@@ -29,8 +30,10 @@ html
           .hero__body__inner
             span#home_h1 
             br
-            span#home_h4 style="white-space:pre;" 
+            span#home_h4
 
-    .space--top-2
+    .space--top-0
       = yield
+
+    = render 'shared/footer'      
     = render "javascript"

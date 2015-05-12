@@ -41,6 +41,7 @@ gem 'autoprefixer-rails'
 gem 'slim-rails'
 gem 'rails-assets-normalize-scss'
 gem 'sass'
+gem 'rails-assets-ionicons'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-daviferreira--medium-editor'

@@ -273,6 +273,7 @@ GEM
     rails-assets-iacquire-medium-editor-insert-plugin (0.4.0)
       rails-assets-jquery (>= 1.9.0, < 2.0.4)
       rails-assets-medium-editor (~> 1.9)
+    rails-assets-ionicons (2.0.1)
     rails-assets-jquery (2.0.3)
     rails-assets-listjs (1.1.1)
     rails-assets-medium-editor (1.9.13)
@@ -438,6 +439,7 @@ DEPENDENCIES
   rails-assets-bigSlide!
   rails-assets-daviferreira--medium-editor!
   rails-assets-iacquire-medium-editor-insert-plugin!
+  rails-assets-ionicons
   rails-assets-listjs!
   rails-assets-normalize-scss
   recipient_interceptor

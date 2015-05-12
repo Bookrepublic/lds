@@ -1,9 +1,8 @@
 .hero
   background-repeat: no-repeat
-  background-position: center center
+  background-position: center 25%
   background-color: $light-bg-color
   background-size: cover
-  position: relative
   color: white
 
 .hero__body
@@ -12,13 +11,30 @@
   text-align: center
 
 .hero__body__inner
-  display: table-cell
+  position: relative  
   vertical-align: middle
+  background-size: cover  
   +vertical-padding(18)
-  background: url('/img/home-header.jpg') no-repeat left center
+  background: url('/img/home-header.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 
+.hero__body__video
+  @extend .hero__body__inner
+  +vertical-padding(6)
+  background: url('/img/cover-video.jpg') no-repeat center center
+  border-bottom: 1px solid $border-color
 
+.hero__body__authors
+  @extend .hero__body__inner
+  +vertical-padding(6)
+  background: url('/img/cover-authors.jpg') no-repeat center center
+  border-bottom: 1px solid $border-color
+
+.hero__body__books
+  @extend .hero__body__inner
+  +vertical-padding(6)
+  background: url('/img/cover-books.jpg') no-repeat center center
+  border-bottom: 1px solid $border-color
 
 #home_h1
   +heading-font-family
