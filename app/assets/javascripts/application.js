@@ -18,6 +18,8 @@
 //= require iacquire-medium-editor-insert-plugin
 //= require listjs
 //= require typed
+//= require isotope
+//= require site_isotope
 
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {

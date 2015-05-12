@@ -47,7 +47,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-iacquire-medium-editor-insert-plugin'
   gem 'rails-assets-bigSlide'
   gem 'rails-assets-listjs'
-  gem 'rails-assets-isotope'
 end
 
 group :development do
