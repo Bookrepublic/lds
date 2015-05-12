@@ -1,35 +1,32 @@
 $( function() {
+  // quick search regex
   var qsRegex;
+  var buttonFilter;
 
+  // init Isotope
   var $container = $('.isotope').isotope({
     itemSelector: '.shelf__item',
     layoutMode: 'fitRows',
     filter: function() {
-      return qsRegex ? $(this).text().match( qsRegex ) : true;
+      var $this = $(this);
+      var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
+      var buttonResult = buttonFilter ? $this.is( buttonFilter ) : true;
+      return searchResult && buttonResult;
     }
   });
 
+  $('#filters').on( 'click', '.dialog__filter', function() {
+    buttonFilter = $( this ).attr('data-filter');
+    $container.isotope();
+  });
+
+  // use value of search field to filter
   var $quicksearch = $('#quicksearch').keyup( debounce( function() {
     qsRegex = new RegExp( $quicksearch.val(), 'gi' );
     $container.isotope();
-  }, 200 ) );
+  }) );
 
-  $('#filters').on( 'click', '.dialog__filter', function() {
-    var $this = $(this);
-    var $buttonGroup = $this.parents('.dialog__filters');
-    var filterGroup = $buttonGroup.attr('data-filter-group');
-    // set filter for group
-    filters[ filterGroup ] = $this.attr('data-filter');
-    // combine filters
-    var filterValue = '';
-    for ( var prop in filters ) {
-      filterValue += filters[ prop ];
-    }
-    // set filter for Isotope
-    $container.isotope({ filter: filterValue });
-  });
-
-  // change is-checked class on buttons
+    // change is-checked class on buttons
   $('.button-group').each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
     $buttonGroup.on( 'click', 'button', function() {
@@ -37,8 +34,10 @@ $( function() {
       $( this ).addClass('is-checked');
     });
   });
+
 });
 
+// debounce so filtering doesn't happen every millisecond
 function debounce( fn, threshold ) {
   var timeout;
   return function debounced() {
@@ -49,6 +48,6 @@ function debounce( fn, threshold ) {
       fn();
       timeout = null;
     }
-    timeout = setTimeout( delayed, threshold || 100 );
-  }
+    setTimeout( delayed, threshold || 100 );
+  };
 }

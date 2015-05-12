@@ -28,21 +28,23 @@
               #second-dialog.dialog
                 .dialog__frame
                   a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
-                  .dialog__body#filter
-                    - @videos.each do |video|
-                      - if video.tags.count > 0
-                        .dialog__filters.dialog__filter__title data-filter-group="Categorie"
-                          | Categorie
-                        .dialog__filter data-filter=""
-                          | Tutte
+                  .dialog__body#filters
+                    | Categorie
+                    .dialog__filters data-filter-group="tag"
+                      .dialog__filter data-filter=""
+                        | Tutte
+                      - @videos.each do |video|
                         - video.tags.each do |t|
-                          .dialog__filter data-filter="#{t.tag}"
+                          button.dialog__filter data-filter=".#{t.tag}"
                             = t.tag
 
     .shelf.isotope
       ul
         - @videos.each do |video|
           .shelf__item.shelf--bigger
+            - if video.tags.count > 0
+              - video.tags.each do |t|
+                  class="#{t.tag}"
             = link_to(video, class: 'video-excerpt') do
               li.video-excerpt__inner
                 .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
@@ -58,9 +60,10 @@
                 - if video.tags.count > 0
                   .video-excerpt__infos
                     = video.tags.map(&:tag).join(", ")
-                    .vtag.hidden
-                      - video.tags.each do |t|
-                        span = t.tag
+                  .vtag
+                    - video.tags.each do |t|
+                      span class="#{t.tag}"
+                        = t.tag
                 - if video.pubblications.count > 0
                   .video-excerpt__data
                     | I libri consigliati
