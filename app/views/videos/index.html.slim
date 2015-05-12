@@ -28,10 +28,16 @@
               #second-dialog.dialog
                 .dialog__frame
                   a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
-                  .dialog__body
+                  .dialog__body#filter
                     - @videos.each do |video|
                       - if video.tags.count > 0
+                        .dialog__filters.dialog__filter__title data-filter-group="Categorie"
+                          | Categorie
+                        .dialog__filter data-filter=""
+                          | Tutte
                         - video.tags.each do |t|
+                          .dialog__filter data-filter="#{t.tag}"
+                            = t.tag
 
     .shelf.isotope
       ul
