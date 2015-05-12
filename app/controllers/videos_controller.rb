@@ -5,7 +5,12 @@ class VideosController < ApplicationController
   end
 
   def index
-    @videos = Video.includes(:sponsors, :writers, :pubblications).published
+    @videos = Video.includes(:sponsors, :writers, :pubblications, :books, :authors).published
+    @sponsors = Sponsor.all.order("last_name asc")
+    @tags = Tag.all.order("tag asc")
+    @books = Book.published.order("title asc")
+    @writers = Writer.all.order("last_name asc")
+    @pubblications = Pubblication.all.order("title asc")
   end
 
   private

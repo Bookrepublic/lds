@@ -11,4 +11,7 @@ class Sponsor < ActiveRecord::Base
     read_attribute(:avatar_file_name).present? ? avatar.url : "http://placehold.it/210x280"
   end
 
+  def slug
+    full_name.tr("àáÀÁèéÈÉìíÌÍòóÒÓùúÙÚ", "aaAAeeEEiiIIooOOuuUU").delete(" ").delete("'").downcase
+  end
 end

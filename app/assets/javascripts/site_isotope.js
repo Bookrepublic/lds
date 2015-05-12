@@ -7,6 +7,14 @@ $( function() {
   var $container = $('.isotope').isotope({
     itemSelector: '.shelf__item',
     layoutMode: 'fitRows',
+    getSortData: {
+      title: '[data-title]',
+      id: '[data-id]',
+    },
+    sortAscending: {
+      title: true,
+      id: false,
+    },
     filter: function() {
       var $this = $(this);
       var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
@@ -15,8 +23,27 @@ $( function() {
     }
   });
 
+  $('#sorts').on( 'click', '.search__sort__item', function() {
+    var sortValue = $(this).attr('data-sort-value');
+    $container.isotope({ sortBy: sortValue });
+  });
+
+  var filters = {};
+
   $('#filters').on( 'click', '.dialog__filter', function() {
-    buttonFilter = $( this ).attr('data-filter');
+    var $this = $(this);
+    // get group key
+    var $buttonGroup = $this.parents('.dialog__filters');
+    var filterGroup = $buttonGroup.attr('data-filter-group');
+    // set filter for group
+    filters[ filterGroup ] = $this.attr('data-filter');
+    // combine filters
+    var filterValue = '';
+    for ( var prop in filters ) {
+      filterValue += filters[ prop ];
+    }
+    buttonFilter = filterValue;
+    // set filter for Isotope
     $container.isotope();
   });
 
@@ -26,15 +53,21 @@ $( function() {
     $container.isotope();
   }) );
 
-    // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
+  $('.dialog__filters').each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.on( 'click', '.dialog__filter', function() {
       $buttonGroup.find('.is-checked').removeClass('is-checked');
       $( this ).addClass('is-checked');
     });
   });
 
+  $('.search__sort__items').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', '.search__sort__item', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
 });
 
 // debounce so filtering doesn't happen every millisecond

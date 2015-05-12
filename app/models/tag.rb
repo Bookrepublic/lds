@@ -9,4 +9,8 @@ class Tag < ActiveRecord::Base
   def to_s
     "#{tag}"
   end
+
+  def slug
+    tag.tr("àáÀÁèéÈÉìíÌÍòóÒÓùúÙÚ", "aaAAeeEEiiIIooOOuuUU").delete(" ").downcase
+  end
 end

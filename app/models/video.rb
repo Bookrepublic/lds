@@ -25,4 +25,8 @@ class Video < ActiveRecord::Base
   scope :home_video, -> {
     where(public: true).order("RANDOM()").limit(1)
   }
+
+  def filter_list
+    tags.map(&:slug).join(" ") + " " + pubblications.map(&:slug).join(" ") + " " + writers.map(&:slug).join(" ") + " " + sponsors.map(&:slug).join(" ")
+  end
 end

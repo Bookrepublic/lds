@@ -7,6 +7,10 @@ class Pubblication < ActiveRecord::Base
   has_many :writers, through: :pubblication_writers
 
   def title_writers
-    "#{title} di %i{pubblication.wrtiers}"
+    "#{title} di %i{pubblication.writers}"
+  end
+
+  def slug
+    title.tr("àáÀÁèéÈÉìíÌÍòóÒÓùúÙÚ", "aaAAeeEEiiIIooOOuuUU").delete(" ").delete("'").downcase
   end
 end

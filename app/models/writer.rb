@@ -9,4 +9,8 @@ class Writer < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
+
+  def slug
+    to_s.tr("àáÀÁèéÈÉìíÌÍòóÒÓùúÙÚ", "aaAAeeEEiiIIooOOuuUU").delete(" ").delete("'").downcase
+  end
 end
