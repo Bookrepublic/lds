@@ -7,6 +7,7 @@ ActiveAdmin.register Video do
       link_to video.title, admin_video_path(video)
     end
     column :created_at, sortable: :created_at
+    column :public
   end
 
   filter :title
@@ -15,18 +16,12 @@ ActiveAdmin.register Video do
   filter :books
   filter :authors
   filter :created_at
+  filter :public
 
-  permit_params(
-    :title, :description, :video, :public,
-    sponsor_ids: [], book_ids: [],
-    pubblication_ids: [],
-    writers_ids: [],
-    tags_ids: [],
-
+  permit_params :title, :description, :video, :public, sponsor_ids: [], book_ids: [], pubblication_ids: [], writer_ids: [], tag_ids: []
     #tags_attributes: {tag: nil, _destroy: nil, id: nil},
     #pubblications_attributes: {title: nil, _destroy: nil, id: nil},
     #writers_attributes: {first_name: nil, last_name: nil, _destroy: nil, id: nil},
-  )
 
   form do |f|
     f.inputs 'Video details' do
