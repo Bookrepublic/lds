@@ -1,21 +1,4 @@
 = render "home_books"
 = render "home_authors"
 = render "home_video"
-.wrap
-  h2.alpha.space--top-2
-    | Elenco dei post
-  - @posts.each do |post|
-    .formatted-content.space--top-2
-      h3.delta
-        = link_to post.title, post
-      p
-        | scritto da 
-        = link_to post.user.first_name, user_path(post.user)
-        |  il giorno 
-        = post.date
-      p
-        | tag: 
-        - post.tags.each do |tag|
-          = link_to tag.tag, tag
-          |  
-      p = post.excerpt
+/= render "home_blog"

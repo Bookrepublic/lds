@@ -20,9 +20,8 @@ html
         li.align--left.space--top-2
           = link_to 'Gli autori', authors_path
         li.align--left.space--top-2
-          = link_to 'Video', videos_path  
+          = link_to 'Video', videos_path
 
-    = render 'shared/header'
     - if flash.any?
       .wrap.space--top-2.space--bottom-2
         = render "flashes"
@@ -30,12 +29,19 @@ html
       .hero
         .hero__body
           .hero__body__inner
-            span#home_h1 
+          = render 'shared/header'
+
+            span#home_h1
             br
             span#home_h4
+    - else
+      .hero
+        .hero__body
+          .hero__body__inner
+          = render 'shared/header'
 
     .space--top-0
       = yield
 
-    = render 'shared/footer'      
+    = render 'shared/footer'
     = render "javascript"
