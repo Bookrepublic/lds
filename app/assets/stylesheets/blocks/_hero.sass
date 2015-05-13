@@ -10,29 +10,29 @@
   width: 100%
   text-align: center
 
-.hero__body__inner
+.hero__body--home
   position: relative  
   vertical-align: middle
   background-size: cover  
-  +vertical-padding(18)
+  +vertical-padding(12)
   background: url('/img/home-header.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 
-.hero__body__video
-  @extend .hero__body__inner
-  +vertical-padding(6)
+.hero__body--video
+  @extend .hero__body--home
+  +vertical-padding(12)
   background: url('/img/cover-video.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 
-.hero__body__authors
-  @extend .hero__body__inner
-  +vertical-padding(6)
+.hero__body--authors
+  @extend .hero__body--home
+  +vertical-padding(12)
   background: url('/img/cover-authors.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 
-.hero__body__books
-  @extend .hero__body__inner
-  +vertical-padding(6)
+.hero__body--books
+  @extend .hero__body--home
+  +vertical-padding(12)
   background: url('/img/cover-books.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 

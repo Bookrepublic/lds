@@ -1,12 +1,14 @@
 .header
   //background-color: transparent
   width: 100%
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(black, 0.1) 100%)
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.01) 100%)
   color: white
   padding: 1em 0
   margin: 0px
   position: absolute
   top: 0
+  left: 0
+  z-index: 100
   a
     color: white
     text-decoration: none
@@ -72,9 +74,10 @@
   color: $grey
   text-transform: uppercase
   position: fixed
-  left: -15.625em
-  width: 15.625em
+  left: -17em
+  width: 17em
   box-shadow: 0 3px 10px rgba(black, 0.5)
+  z-index: 105
 
   img
     +vertical-padding(3)
@@ -85,3 +88,6 @@
     text-decoration: none
     color: $grey
     +padding(2)
+  
+  +at-breakpoint(lap)
+    display: none

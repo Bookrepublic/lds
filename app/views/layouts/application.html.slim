@@ -25,20 +25,10 @@ html
     - if flash.any?
       .wrap.space--top-2.space--bottom-2
         = render "flashes"
-    - if current_page?(root_path)
-      .hero
-        .hero__body
-          .hero__body__inner
-          = render 'shared/header'
+    = render 'shared/header'  
 
-            span#home_h1
-            br
-            span#home_h4
-    - else
-      .hero
-        .hero__body
-          .hero__body__inner
-          = render 'shared/header'
+
+
 
     .space--top-0
       = yield
