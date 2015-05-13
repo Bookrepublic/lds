@@ -1,16 +1,38 @@
-h2.alpha
-  = @author.full_name
-p
-  = @author.biography
-p
-  = image_tag @author.avatar_url
-- if @author.books.count > 0
-  h3.gamma
-    | Libri correlati
-  - @author.books.each do |book|
-    p = link_to book.title, book
-- if @author.videos.count > 0
-  h3.gamma
-    | Video correlati
-  - @author.videos.each do |video|
-    p = link_to video.title, video
+.wrap
+  h2.alpha
+    = @author.full_name
+    |
+  p
+    = @author.biography
+  p
+    = image_tag @author.avatar_url
+  - if @author.books.count > 0
+    h3.gamma
+      | Libri correlati
+    - @author.books.each do |book|
+      p = link_to book.title, book
+  - if @author.videos.count > 0
+    h3.gamma
+      | Video correlati
+    - @author.videos.each do |video|
+      p = link_to video.title, video
+
+
+.home_book
+  = link_to books_path do
+    .wrap
+      .home_book__inner
+        h2.home_book__title
+          | Elenco di tutti i libri
+        p.home_book__infos
+          | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+      .home_book__list
+        .home_book__first_box
+          - @books.slice(0..1).each do |book|
+            .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
+        .home_book__second_box
+          - @books.slice(2..3).each do |book|
+            .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
+        .home_book__third_box
+          - @books.slice(4..5).each do |book|
+            .home_book__item style="background-image:url('#{book.cover.url(:thumb)}')"
