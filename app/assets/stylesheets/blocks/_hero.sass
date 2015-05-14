@@ -4,6 +4,8 @@
   background-color: $light-bg-color
   background-size: cover
   color: white
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4)
+
 
 .hero__body
   display: table
@@ -17,6 +19,13 @@
   +vertical-padding(12)
   background: url('/img/home-header.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
+  h1
+    +heading-font-family
+    +font-size(delta)
+    line-height: 1.2
+    text-transform: uppercase
+    font-weight: 600
+
 
 .hero__body--video
   @extend .hero__body--home
@@ -27,7 +36,7 @@
 .hero__body--authors
   @extend .hero__body--home
   +vertical-padding(12)
-  background: url('/img/cover-authors.jpg') no-repeat center center
+  background: url('/img/cover-authors.jpg') no-repeat top center
   border-bottom: 1px solid $border-color
 
 .hero__body--books
@@ -36,14 +45,21 @@
   background: url('/img/cover-books.jpg') no-repeat center center
   border-bottom: 1px solid $border-color
 
+.hero__body--about
+  @extend .hero__body--home
+  +vertical-padding(12)
+  background: url('/img/cover-about.jpg') no-repeat center center
+  border-bottom: 1px solid $border-color
+
 #home_h1
   +heading-font-family
-  +font-size(alpha)
+  +font-size(delta)
   line-height: 1.2
   margin-left: auto
   margin-right: auto
   max-width: 800px
   text-transform: uppercase
+  font-weight: 600
 
 #home_h4
   +heading-font-family
