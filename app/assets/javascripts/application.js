@@ -40,14 +40,6 @@ $(function() {
  $('.menu-link').bigSlide();
 });
 
-//List Authors Index
-$(function() {
-  var author_index = {
-    valueNames: ['author-excerpt__first', 'author-excerpt__last']
-  };
-  var entryList = new List('authors_list', author_index);
-});
-
 //Add class to search
 $(function() {
   var search = $(".search__sort");
