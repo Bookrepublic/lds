@@ -7,8 +7,17 @@
   height: 400px
   background-size: cover
   background-position: center center
-  background-color: rgba(black, 0.3)
+  background-color: #f5f1e9
   transition: background-color 0.2s ease-in
+  //background: url('/img/pattern.png') repeat top left
+  &:after
+    content: ""
+    position: absolute
+    right: 0
+    bottom: 0
+    left: 0
+    height: 20px
+    background-image: linear-gradient(to top, rgba(209, 193, 166, 0.30) 0, transparent 100%)
 
 .book__inner
   position: relative
@@ -81,6 +90,16 @@
 
 .book__description
   +vertical-padding(2)
+
+.button-store
+  @extend .button
+  //background-color: black
+  width: 100%
+  +margin-bottom(2)
+  text-align: center
+
+
+
 
 +at-breakpoint(lte-lap)
   .book__side

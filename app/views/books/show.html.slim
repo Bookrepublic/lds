@@ -25,19 +25,20 @@
             ul.book-infos--important
               li.book-infos__item
                 h6
-                  span Acquistalo su
-                p.gamma
+                  span Acquistalo su 
+              .li.book-infos__item
+                .button-store
                   a href="http://www.bookrepublic.it/book/#{@book.isbn}"
                     | Bookrepublic
                 -if @book.link_amazon
-                  p.gamma
+                  .button-store
                     a href="#{@book.link_amazon}"
                       | Amazon
                 -if @book.link_apple
-                  p.gamma
+                  .button-store
                     a href="#{@book.link_kobo}"
                       | Apple
                 -if @book.link_kobo
-                  p.gamma
+                  .button-store
                     a href="#{@book.link_apple}"
                       | Apple
