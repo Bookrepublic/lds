@@ -1,17 +1,49 @@
 .inner-shelf
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: center
-  justify-content: flex-start
 
 .inner-shelf__item
-  background-color: red
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  text-decoration: none
+  width: 100%
+
+  +at-breakpoint(lap)
+    width: 50%
+
+.inner-shelf__title
+  +margin-bottom(1)
 
 .inner-shelf__image
-  min-width: 100px
-  height: 100px
+  width: 90px
 
+.inner-shelf__book
+  @extend .cover
+  box-shadow: 0 2px 7px rgba(black, 0.3)
+  position: relative
+  background-size: cover
+  background-position: top center
+  height: 135px
+  min-width: 90px
+  +margin-bottom(1)
+
+.inner-shelf__video
+  @extend .video-thumb
+  box-shadow: 0 2px 7px rgba(black, 0.3)
+  position: relative
+  background-size: cover
+  background-position: top center
+  height: 90px
+  min-width: 90px
+  +margin-bottom(1)
+
+.inner-shelf__meta
+  +font-size(smallprint)
+  +margin-left(1.5)
+  +margin-right(1)
+
+  a
+    text-decoration: none
 //.author__cover
   //display: block
   //text-decoration: none

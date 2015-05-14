@@ -12,18 +12,24 @@
           .formatted-content
             p =simple_format(@author.biography)
         - if @author.books.count > 0
-          h3.gamma
-            | Libri correlati
-          - @author.books.each do |book|
-            p = link_to book.title, book
+          h2.gamma.space--bottom-2
+            | I suoi libri
+          .shelf.isotope
+            ul
+              - @author.books.each do |book|
+                .shelf__item
+                  = link_to book do
+                    li.book-excerpt--shelf-inner
+                        .book-excerpt__cover
+                        .book-excerpt__title = book.title
         - if @author.videos.count > 0
-          h3.gamma
-            | Video correlati
-          - @author.videos.each do |video|
-            p = link_to video.title, video
-        .inner-shelf
-          .inner-shelf__item
-            .inner-shelf__image
-              | Mamma1
-          .inner-shelf__item
-            2
+          h2.gamma.space--bottom-2
+            | I suoi video
+          .shelf.isotope#fit_shelf
+            ul
+              - @author.videos.each do |video|
+                .shelf__item.shelf--bigger data-tags=video.filter_list data-id=video.id data-title=video.title
+                  = link_to(video, class: 'video-excerpt--shelf-inner') do
+                    li.video-excerpt--shelf-inner
+                      .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
+                      .video-excerpt__title = video.title

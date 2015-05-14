@@ -1,12 +1,11 @@
 .wrap
-  .shelf.isotope#video_shelf
+  .shelf.isotope#fit_shelf
     ul
       - @videos.each do |video|
         .shelf__item.shelf--bigger data-tags=video.filter_list data-id=video.id data-title=video.title
           = link_to(video, class: 'video-excerpt') do
             li.video-excerpt__inner
               .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
-              .video-excerpt__created.hidden = video.created_at
               .video-excerpt__title = video.title
               - if video.sponsors.count > 0
                 .video-excerpt__infos

@@ -2,7 +2,7 @@ $( function() {
   // quick search regex
   var qsRegex;
   var buttonFilter;
-  if ($('#video_shelf').length > 0) {
+  if ($('#fit_shelf').length > 0) {
     var $layout = 'fitRows'
   } else {
     var $layout = 'masonry'

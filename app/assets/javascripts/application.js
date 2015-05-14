@@ -20,6 +20,7 @@
 //= require typed
 //= require isotope
 //= require site_isotope
+//= require inner-shelf-isotope
 
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {
