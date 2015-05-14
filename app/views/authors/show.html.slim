@@ -1,18 +1,29 @@
-.wrap
-  h2.alpha
-    = @author.full_name
-    |
-  p
-    = @author.biography
-  p
-    = image_tag @author.avatar_url
-  - if @author.books.count > 0
-    h3.gamma
-      | Libri correlati
-    - @author.books.each do |book|
-      p = link_to book.title, book
-  - if @author.videos.count > 0
-    h3.gamma
-      | Video correlati
-    - @author.videos.each do |video|
-      p = link_to video.title, video
+.author
+  .author__bg
+  .wrap--on-lap
+    .author__inner
+      .author__side
+        .author__cover style="background-image: url('#{@author.avatar.url(:medium)}')"
+      .author__meta
+        .author__title
+          h1
+            = @author.full_name
+        .author__description
+          .formatted-content
+            p =simple_format(@author.biography)
+        - if @author.books.count > 0
+          h3.gamma
+            | Libri correlati
+          - @author.books.each do |book|
+            p = link_to book.title, book
+        - if @author.videos.count > 0
+          h3.gamma
+            | Video correlati
+          - @author.videos.each do |video|
+            p = link_to video.title, video
+        .inner-shelf
+          .inner-shelf__item
+            .inner-shelf__image
+              | Mamma1
+          .inner-shelf__item
+            2

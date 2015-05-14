@@ -4,7 +4,7 @@ class Author < ActiveRecord::Base
   has_many :books, through: :author_books
   has_many :author_videos, dependent: :destroy
   has_many :videos, through: :author_videos
-  has_attached_file :avatar, :styles => { :thumb => "125x125#" }, :convert_options => { :thumb => "-quality 90 -strip" }
+  has_attached_file :avatar, :styles => { :thumb => "125x125#", :medium => "300x300#" }, :convert_options => { :medium => "-quality 90 -strip" }
   validates_attachment_content_type :avatar, content_type: /\Aimage/
 
   validates :first_name, :last_name, presence: true

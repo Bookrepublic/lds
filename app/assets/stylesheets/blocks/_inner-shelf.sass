@@ -1,0 +1,93 @@
+.inner-shelf
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  justify-content: flex-start
+
+.inner-shelf__item
+  background-color: red
+
+.inner-shelf__image
+  min-width: 100px
+  height: 100px
+
+//.author__cover
+  //display: block
+  //text-decoration: none
+  //position: relative
+  //+margin-bottom(2)
+  //@extend .avatar
+  //width: 300px
+  //height: 300px
+  //background-size: cover
+  //background-position: center center
+  //background-color: #4d4d4d
+  //box-shadow: 0 2px 8px rgba(black, 0.2)
+
+//.author__side
+  //position: relative
+
+//.author__meta
+  //background-color: white
+  //box-shadow: 0 2px 8px rgba(black, 0.2)
+  //padding: $grid-gutter
+  //padding-bottom: 0px
+
+//.author__title
+  //+font-size(alpha)
+  //+margin-bottom(1)
+
+//.author__price__label
+  //font-size: smallprint
+  //text-transform: uppercase
+  //line-height: 2
+  //color: $light-body-color
+  //display: block
+
+//.author__price
+  //display: block
+
+//.author__price__base
+  //display: inline-block
+  //margin-right: 0.5em
+  //color: $light-body-color
+  //position: relative
+  //+font-size(beta)
+
+  //&:before
+    //content: ""
+    //height: 2px
+    //background-color: lighten($light-body-color, 20%)
+    //transform: rotate(-4deg)
+    //+position(absolute, 50% -5px null -5px)
+
+//.author__description
+  //+vertical-padding(2)
+
+//+at-breakpoint(lte-lap)
+  //.author__side
+    //max-width: 280px
+    //margin: 0 auto
+    //+margin-bottom(2)
+
+//+at-breakpoint(lap)
+  //.author__meta
+    //+padding(4)
+    //padding-bottom: 0px
+
+//+at-breakpoint(desk)
+  //.author__inner
+    //display: flex
+    //flex-direction: row
+    //flex-wrap: nowrap
+    //align-items: top
+    //justify-content: center
+
+  //.author__side
+    //min-width: 300px
+    //position: relative
+
+  //.author__meta
+    //flex: 1
+    //margin-left: 2 * $grid-gutter
