@@ -29,7 +29,7 @@
             ul
               - @author.videos.each do |video|
                 .shelf__item.shelf--bigger data-tags=video.filter_list data-id=video.id data-title=video.title
-                  = link_to(video, class: 'video-excerpt--shelf-inner') do
+                  = link_to video do
                     li.video-excerpt--shelf-inner
                       .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
                       .video-excerpt__title = video.title
