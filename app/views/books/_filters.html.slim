@@ -1,0 +1,20 @@
+.wrap
+  .search
+    .search__body
+      .search__top
+        .search__top__inner
+          .search__top__input
+            input placeholder="Il catalogo di LDS..." type="text"
+            .search__sort-bar
+              .or
+                .or__item
+                  | Ordina per
+                  .search__sort
+                    .search__sort__selected
+                      ul.search__sort__items#sorts
+                        li.search__sort__item.sort.is-checked data-sort-value="id"
+                          | uscita
+                        li.search__sort__item.sort data-sort-value="author"
+                          | autore
+                        li.search__sort__item.sort data-sort-value="title"
+                          | titolo

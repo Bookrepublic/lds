@@ -40,14 +40,6 @@ $(function() {
  $('.menu-link').bigSlide();
 });
 
-//List Books Index
-$(function() {
-  var options = {
-    valueNames: ['book-excerpt__title', 'book-excerpt__last-name', 'book-excerpt__number', 'book-excerpt__author']
-  };
-  var entryList = new List('books_list', options);
-});
-
 //List Authors Index
 $(function() {
   var author_index = {

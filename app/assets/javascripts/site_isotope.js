@@ -7,9 +7,13 @@ $( function() {
   var $container = $('.isotope').isotope({
     itemSelector: '.shelf__item',
     layoutMode: 'fitRows',
+    masonry: {
+      isFitWidth: true,
+    },
     getSortData: {
       title: '[data-title]',
       id: '[data-id]',
+      author: '[data-author]',
     },
     sortAscending: {
       title: true,

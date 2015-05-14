@@ -1,0 +1,53 @@
+.wrap
+  .shelf.isotope
+    ul
+      - @videos.each do |video|
+        .shelf__item.shelf--bigger data-tags=video.filter_list data-id=video.id data-title=video.title
+          = link_to(video, class: 'video-excerpt') do
+            li.video-excerpt__inner
+              .video-excerpt__cover style="background-image: url('http://img.youtube.com/vi/#{video.video}/mqdefault.jpg')"
+              .video-excerpt__created.hidden = video.created_at
+              .video-excerpt__title = video.title
+              - if video.sponsors.count > 0
+                .video-excerpt__infos
+                  | con 
+                  = video.sponsors.map(&:full_name).join(', ')
+                  .vsponsor.hidden
+                    - video.sponsors.each do |s|
+                      span = s.full_name
+              - if video.tags.count > 0
+                .video-excerpt__infos
+                  = video.tags.map(&:tag).join(", ")
+              - if video.pubblications.count > 0
+                .video-excerpt__data
+                  | I libri consigliati
+                - if video.pubblications.count > 0
+                  - video.pubblications.each do |pubblication|
+                    .video-excerpt__infos.vpubblication
+                      = pubblication.title
+              - if video.pubblications.count > 0
+                - video.pubblications.each do |pubblication|
+                  - if pubblication.writers.count > 0
+                      .video-excerpt__data
+                        | Gli scrittori consigliati
+                  - break
+              - if video.pubblications.count > 0
+                - video.pubblications.each do |pubblication|
+                  - if pubblication.writers.count > 0
+                    - pubblication.writers.each do |writer|
+                        .video-excerpt__infos.vwriter
+                          = writer.to_s
+              - if video.authors.count > 0 or video.books.count > 0
+                .video-excerpt__data
+                  | I libri o gli autori di LDS
+                - if video.books.count > 0
+                  - video.books.each do |book|
+                    .video-excerpt__infos.vbook
+                      = book.title
+                      - if book.authors.count > 0
+                        |  di 
+                        i.vauthor
+                          = book.authors.map(&:full_name).join(', ')
+                - if video.authors.count > 0
+                  .video-excerpt__infos.vauthor
+                    = video.authors.map(&:full_name).join(', ')

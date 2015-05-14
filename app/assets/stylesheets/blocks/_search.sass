@@ -8,11 +8,11 @@
 
 .search__body
   flex: 1
-  max-width: 300px
+  max-width: 500px
   z-index: 10
 
   +at-breakpoint(desk)
-    max-width: 400px
+    max-width: 600px
 
 .search__top__input
   position: relative
@@ -120,10 +120,6 @@
       +font-size(gamma)
 
 @media screen and (min-width: 951px)
-  .search__filters__close,
-  .search__top__toggle
-    display: none
-
   .search__top__inner
     +wrap(2)
 

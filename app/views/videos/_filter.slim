@@ -1,0 +1,63 @@
+.wrap
+  .search
+    .search__body
+      .search__top
+        .search__top__inner
+          .search__top__input
+            input placeholder="Tutti i video di LDS..." type="text" id="quicksearch"
+            .search__sort-bar
+              .or
+                .or__item
+                  | Ordina per
+                  .search__sort
+                    .search__sort__selected
+                      ul.search__sort__items#sorts
+                        li.search__sort__item.sort.is-checked data-sort-value="id"
+                          | uscita
+                        li.search__sort__item.sort data-sort-value="title"
+                          | titolo
+      .search__top
+        .search__top__inner--small
+          .search__sort-bar__inner.align--center
+            a.button href="#" data-element=".dialog" data-class-toggle="is-active"
+              | Filtra i video
+            #second-dialog.dialog
+              .dialog__frame
+                a.dialog__close data-class-toggle="is-active" data-element=".dialog" href="#"
+                .dialog__body#filters
+                  - if @sponsors.count > 0
+                    .dialog__filters data-filter-group="sponsors"
+                      .dialog__title
+                        | Consigliatori
+                      .dialog__filter.is-checked data-filter=""
+                        | Tutti i consigliatori
+                      - @sponsors.each do |s|
+                        .dialog__filter data-filter="[data-tags*='#{s.slug}']"
+                          = s.full_name
+                  - if @tags.count > 0
+                    .dialog__filters data-filter-group="tags"
+                      .dialog__title
+                        | Categorie
+                      .dialog__filter.is-checked data-filter=""
+                        | Tutte le categorie
+                      - @tags.each do |t|
+                        .dialog__filter data-filter="[data-tags*='#{t.slug}']"
+                          = t.tag
+                  - if @pubblications.count > 0
+                    .dialog__filters data-filter-group="pubblications"
+                      .dialog__title
+                        | Libri consigliati
+                      .dialog__filter.is-checked data-filter=""
+                        | Tutti i libri
+                      - @pubblications.each do |p|
+                        .dialog__filter data-filter="[data-tags*='#{p.slug}']"
+                          = p.title
+                  - if @writers.count > 0
+                    .dialog__filters data-filter-group="writers"
+                      .dialog__title
+                        | Autori consigliati
+                      .dialog__filter.is-checked data-filter=""
+                        | Tutti gli autori
+                      - @writers.each do |w|
+                          .dialog__filter data-filter="[data-tags*='#{w.slug}']"
+                            = w.to_s

@@ -1,0 +1,16 @@
+.wrap
+  .shelf.isotope
+    ul
+      - @books.each do |book|
+        .shelf__item data-id=book.id data-title=book.title data-author=book.authors.map(&:last_name).join(', ')
+          = link_to(book, class: 'book-excerpt') do
+            li.book-excerpt__inner
+              .book-excerpt__cover style="background-image: url('#{book.cover.url(:thumb)}')"
+              .book-excerpt__title = book.title
+              - if book.authors.count > 0
+                .book-excerpt__last-name.hidden
+                  = book.authors.map(&:last_name).join(', ')
+                .book-excerpt__author
+                  = book.authors.map(&:full_name).join(', ')
+              - else
+                .book-excertp__author &nbsp

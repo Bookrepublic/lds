@@ -29,6 +29,7 @@
 
 .dialog__body
   +padding(2)
+  text-align: left
 
 .dialog__close
   position: absolute
@@ -41,3 +42,23 @@
     line-height: 40px
     font-size: 40px
     @extend .icon--cross:before
+
+.dialog__filters
+  +padding-bottom(2)
+  +padding-left(1)
+  font-weight: 300
+
+.dialog__title
+  font-weight: bold
+  +padding-bottom(0.5)
+
+.dialog__filter
+  cursor: pointer
+
+.is-checked
+  font-weight: bold
+
+  &:before
+    @extend .icon--cross:before
+    +margin-right(0.4)
+    vertical-align: middle

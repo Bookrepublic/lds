@@ -1,21 +1,13 @@
 .shelf
-  //display: flex
-  //flex-direction: row
-  //flex-wrap: wrap
-  //align-items: flex-start
-  //justify-content: center
-  //margin-left: - $grid-gutter * 0.5
-  //margin-right: - $grid-gutter * 0.5
+  margin: 0 auto
 
   ul
     @extend .shelf
     width: 100%
 
 .shelf__item
-  width: 125px
-  //margin-left: $grid-gutter * 0.5
-  //margin-right: $grid-gutter * 0.5
   +margin-bottom(2)
+  width: 170px
 
 .shelf--bigger
   width: 100%
@@ -34,13 +26,7 @@
 
 +at-breakpoint(lap)
   .shelf
-    margin-left: - $grid-gutter
-    margin-right: - $grid-gutter
 
   .shelf__item
-    //margin-left: $grid-gutter
-    //margin-right: $grid-gutter
     +margin-bottom(4)
 
-    .shelf--bigger &
-      width: 320px
