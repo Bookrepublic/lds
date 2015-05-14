@@ -2,11 +2,16 @@ $( function() {
   // quick search regex
   var qsRegex;
   var buttonFilter;
+  if ($('#video_shelf').length > 0) {
+    var $layout = 'fitRows'
+  } else {
+    var $layout = 'masonry'
+  }
 
   // init Isotope
   var $container = $('.isotope').isotope({
     itemSelector: '.shelf__item',
-    layoutMode: 'fitRows',
+    layoutMode: $layout,
     masonry: {
       isFitWidth: true,
     },
