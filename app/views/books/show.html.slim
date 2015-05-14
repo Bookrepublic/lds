@@ -7,4 +7,37 @@
           .book__cover__front
             = image_tag @book.cover.url(:medium)
       .book__meta
-        | 2
+        .book__title
+          h1
+            = @book.title
+        .book__author
+          = raw(@book.authors.map { |author| raw(link_to author.full_name, author) }.join(", "))
+        - if @book.price
+          .book__cta
+            .book__cta__price
+              span.book__price__label Prezzo
+              span.book__price__current
+                = number_to_currency(@book.price, unit: '€ ', seperator: ',')
+          .book__description
+            .formatted-content
+              p =simple_format(@book.description)
+          .book__props
+            ul.book-infos--important
+              li.book-infos__item
+                h6
+                  span Acquistalo su
+                p.gamma
+                  a href="http://www.bookrepublic.it/book/#{@book.isbn}"
+                    | Bookrepublic
+                -if @book.link_amazon
+                  p.gamma
+                    a href="#{@book.link_amazon}"
+                      | Amazon
+                -if @book.link_apple
+                  p.gamma
+                    a href="#{@book.link_kobo}"
+                      | Apple
+                -if @book.link_kobo
+                  p.gamma
+                    a href="#{@book.link_apple}"
+                      | Apple

@@ -1,0 +1,58 @@
+.book-infos
+
+.book-infos__item
+  +margin-bottom(2)
+
+  i
+    display: inline-block
+    vertical-align: middle
+    margin-right: 5px
+
+  h6
+    display: inline-block
+    line-height: 2
+    font-weight: bold
+    color: $light-body-color
+
+  p
+    color: $light-body-color
+
+    a
+      text-decoration: none
+
+  &:nth-last-child(1)
+    margin-bottom: 0
+
+.book-infos--important
+  @extend .book-infos
+  +vertical-padding(2)
+  padding-left: $grid-gutter
+  padding-right: $grid-gutter
+  margin-left: -$grid-gutter
+  margin-right: -$grid-gutter
+
+  +at-breakpoint(desk)
+    background-color: $light-bg-color
+
++at-breakpoint(lap)
+  .book-infos
+    +clearfix
+
+  .book-infos__item
+    float: left
+    width: 50%
+    box-sizing: border-box
+    padding-right: 2 * $grid-gutter
+
+    &:nth-last-child(2)
+      margin-bottom: 0
+
+    &:nth-child(2n+1)
+      clear: left
+
++at-breakpoint(desk)
+  .book-infos--important
+    margin-left: -2 * $grid-gutter
+    margin-right: -2 * $grid-gutter
+    padding-left: 2 * $grid-gutter
+    padding-right: 2 * $grid-gutter
