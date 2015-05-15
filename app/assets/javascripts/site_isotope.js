@@ -17,7 +17,7 @@ $( function() {
     },
     getSortData: {
       title: '[data-title]',
-      id: '[data-id]',
+      id: '[data-id] parseInt',
       author: '[data-author]',
     },
     sortAscending: {
