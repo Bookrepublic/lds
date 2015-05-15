@@ -1,51 +1,51 @@
-h2.beta = @video.title
-p = @video.description
-.video
-  .video-wrapper
-    iframe src=@video.video frameborder="0" allowfullscreen
-- if @video.books.count > 0
-  h3.gamma.space--top-2
-    | Libri correlati
-  - @video.books.each do |book|
-    p = link_to book.title, book
-- if @video.tags.count > 0
-  h3.gamma.space--top-2
-    | Tag:  
-  - @video.tags.each do |tag|
-    p = link_to tag.tag, tag
-- if @video.sponsors.count > 0
-  h3.gamma.space--top-2
-    | Questo video è stato realizato da:
-  - @video.sponsors.each do |sponsor|
-    p = link_to sponsor.full_name, sponsor
-- if @video.pubblications.count > 0
-  h3.gamma.space--top-2
-    | I libri consigliati in questo video
-  - @video.pubblications.each do |pubblication|
-    p = pubblication.title
-    - if pubblication.writers.count > 0
-      - pubblication.writers.each do |writer|
-        | di 
-        = writer.first_name
-- if @video.writers.count > 0
-  h4.gamma.space--top-2
-    | Gli autori consigliati da questo video
-  - @video.writers.each do |writer|
-    p = writer.first_name
-- if @video.authors.count > 0 or @video.books.count > 0
-  h4.gamma.space--top-2
-    | La sezione speciale dedicata ai libri o agli autori  di LDS
-  - if @video.books.count > 0
-    h5.space--top-2
-      | I libri
-    - @video.books.each do |book|
-      p = link_to book.title, book
-      - if book.authors.count > 0
-        | di 
-        - book.authors.each do |author|
-          = link_to author.full_name, author
-  - if @video.authors.count > 0
-    h5.space--top-2
-      | Gli autori
-    - @video.authors.each do |author|
-      p = link_to author.full_name, author
+.video-show
+  .video-show__bg
+  .wrap--on-lap
+    .video-show__inner
+      .video-show__side
+        .video-show__cover
+          .video
+            .video-wrapper
+              iframe src=@video.video frameborder="0" allowfullscreen
+      .video-show__meta
+        .video-show__title
+          h1
+            = @video.title
+        .video-show__author
+          = @video.sponsors.map(&:full_name).join(", ")
+        - if @video.description
+          .video-show__description
+            .formatted-content
+              p =simple_format(@video.description)
+        - if @video.tags.count > 0
+          .video-show__props
+            ul.video-show-infos--important.space--bottom-2
+              li.video-show-infos__item
+                h6
+                  span Categorie
+                p
+                  = @video.tags.map(&:tag).join(", ")
+            - if @video.pubblications.count > 0 || @video.writers.count > 0 || @video.authors.count > 0 || @video.books.count > 0
+              ul.video-show-infos
+                - if @video.pubblications.count > 0
+                  li.video-show-infos__item
+                    h6
+                      span I libri consigliati
+                    p
+                      = @video.pubblications.map(&:title).join(", ")
+                - if @video.writers.count > 0
+                  li.video-show-infos__item
+                    h6
+                      span Gli autori consiglati
+                    p
+                      = @video.writers.map(&:to_s).join(", ")
+                - if @video.authors.count > 0
+                  li.video-show-infos__item
+                    h6
+                      span Gli autori LDS
+                    p = raw(@video.authors.map { |author| raw(link_to author.full_name, author) }.join(", "))
+                - if @video.books.count > 0
+                  li.video-show-infos__item
+                    h6
+                      span I libri di LDS
+                    p = raw(@video.books.map { |book| raw(link_to book.title, book) }.join(", "))
