@@ -159,6 +159,8 @@ GEM
       activesupport
       capybara
       i18n
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     guard (2.12.5)
@@ -419,6 +421,7 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   formulaic
+  friendly_id (~> 5.1.0)
   guard
   guard-livereload
   high_voltage

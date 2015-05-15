@@ -26,6 +26,10 @@ gem 'devise'
 gem 'cancancan'
 gem 'image_optim_bin'
 
+# Better slug
+
+gem 'friendly_id', '~> 5.1.0'
+
 # Paperclip
 
 gem 'paperclip'

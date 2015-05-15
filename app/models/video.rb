@@ -1,4 +1,7 @@
 class Video < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title,  use: [:slugged, :finders]
+
   validates :video, presence: true
 
   has_many :book_videos

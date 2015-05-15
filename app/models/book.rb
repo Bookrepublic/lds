@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
 
   validates :title, :number, :description, :isbn, presence: true
   validates :number, :isbn, uniqueness: true
@@ -19,8 +21,10 @@ class Book < ActiveRecord::Base
     where(public: true).order("number desc").limit(6)
   }
 
-  def cover_url
-    read_attribute(:cover_file_name).present? ? cover.url : "http://placehold.it/210x280"
+  def slug_candidates
+    [
+      :title
+    ]
   end
 
 end

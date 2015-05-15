@@ -16,6 +16,6 @@ class VideosController < ApplicationController
   private
 
     def set_video
-      @video = Video.includes(:sponsors, :writers, :pubblications).published.find(params[:id])
+      @video = Video.includes(:sponsors, :writers, :pubblications).published.friendly.find(params[:id])
     end
 end

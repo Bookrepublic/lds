@@ -7,7 +7,7 @@ class AuthorsController < InheritedResources::Base
 
   private
     def set_author
-      @author = Author.includes(:books).includes(:videos).published.find(params[:id])
+      @author = Author.includes(:books).includes(:videos).published.friendly.find(params[:id])
     end
 
     def author_params
