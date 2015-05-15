@@ -23,14 +23,21 @@
   background-size: cover
   background-position: top center
   top: 0
-  height: 188px
   transition: top 0.3s cubic-bezier(.25, .15, .20, 1), box-shadow 0.3s cubic-bezier(.25, .15, .20, 1)
   +margin-bottom(1)
   @extend .cover
+  height: 212px
+
+  +at-breakpoint(lap)
+    height: 188px
 
   a.book-excerpt:hover &
     top: -10px
     box-shadow: 0 10px 20px rgba(black, 0.2)
+
+.book-excerpt__cover--smaller
+  @extend .book-excerpt__cover
+  height: 188px
 
 .book-excerpt__title,
 .book-excerpt__author,

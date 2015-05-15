@@ -14,13 +14,14 @@
         - if @author.books.count > 0
           h2.gamma.space--bottom-2
             | I suoi libri
-          .shelf.isotope
+          .shelf.isotope#fit_shelf
+
             ul
               - @author.books.each do |book|
-                .shelf__item
+                .shelf__item.shelf__item--smaller
                   = link_to book do
                     li.book-excerpt--shelf-inner
-                        .book-excerpt__cover
+                        .book-excerpt__cover--smaller
                         .book-excerpt__title = book.title
         - if @author.videos.count > 0
           h2.gamma.space--bottom-2
