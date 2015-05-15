@@ -4,8 +4,7 @@
   background-color: $light-bg-color
   background-size: cover
   color: white
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4)
-
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 1.5)
 
 .hero__body
   display: table
@@ -13,61 +12,41 @@
   text-align: center
 
 .hero__body--home
-  position: relative  
+  position: relative
   vertical-align: middle
-  background-size: cover  
+  background-size: cover
+  background-position: center center
   +vertical-padding(12)
-  background: url('/img/home-header.jpg') no-repeat center center
+  background-image: url('/img/home-header.jpg')
   border-bottom: 1px solid $border-color
-  h1
+
+  h1, h2
     +heading-font-family
-    +font-size(delta)
+    +font-size(alpha)
     line-height: 1.2
     text-transform: uppercase
     font-weight: 600
 
-
 .hero__body--video
   @extend .hero__body--home
-  +vertical-padding(12)
-  background: url('/img/cover-video.jpg') no-repeat center center
-  border-bottom: 1px solid $border-color
+  background-image: url('/img/cover-video.jpg')
 
 .hero__body--authors
   @extend .hero__body--home
-  +vertical-padding(12)
-  background: url('/img/cover-authors.jpg') no-repeat top center
-  border-bottom: 1px solid $border-color
+  background-image: url('/img/cover-authors.jpg')
 
 .hero__body--books
   @extend .hero__body--home
-  +vertical-padding(12)
-  background: url('/img/cover-books.jpg') no-repeat center center
-  border-bottom: 1px solid $border-color
+  background-image: url('/img/cover-books.jpg')
 
 .hero__body--about
   @extend .hero__body--home
-  +vertical-padding(12)
-  background: url('/img/cover-about.jpg') no-repeat center center
-  border-bottom: 1px solid $border-color
-
-#home_h1
-  +heading-font-family
-  +font-size(delta)
-  line-height: 1.2
-  margin-left: auto
-  margin-right: auto
-  max-width: 800px
-  text-transform: uppercase
-  font-weight: 600
+  background-image: url('/img/cover-about.jpg')
 
 #home_h4
   +heading-font-family
   +font-size(gamma)
   +margin-top(2)
-  max-width: 750px
-  margin-left: auto
-  margin-right: auto
 
 .hero__actions
   +margin-top(2)

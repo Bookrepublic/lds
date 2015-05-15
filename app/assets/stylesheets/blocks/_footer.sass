@@ -1,17 +1,14 @@
 .footer
   background-color: $dark-grey
-  color: $light-grey / 2 
+  color: $light-grey / 2
   margin-top: 2rem
   a
-    color: $light-grey / 2 
-
-
+    color: $light-grey / 2
 
 .footer__line-2
-  border-bottom: 1px solid $dark-grey
   +vertical-padding(2)
   text-align: center
-  background-color: black
+  background-color: $dark-grey
 
 .footer__line-1
   +font-size(smallprint)
@@ -23,13 +20,12 @@
     +padding(2)
     text-align: center
 
-
   .footer__line-1
     background-color: $dark-grey
 
     .footer__text
       +vertical-padding(1)
-      color: $light-grey / 2 
+      color: $light-grey / 2
 
     .footer__text__title
       +font-size(smallprint)
@@ -39,7 +35,7 @@
       font-weight: 600
 
     .footer__text__description
-      +margin-bottom(2)    
+      +margin-bottom(2)
 
 +at-breakpoint(lap)
   .footer
@@ -67,7 +63,7 @@
 
     .footer__text
       +vertical-padding(1)
-      color: $light-grey / 2 
+      color: $light-grey / 2
       text-align: left
 
     .footer__text__title
@@ -79,17 +75,13 @@
 
     .footer__text__description
       +margin-bottom(2)
-    
+
     .flag--top
       width: 100%
       border-bottom: 1px solid $light-grey / 2
       +vertical-padding(1)
-      i 
+      i
         color: $light-grey / 2
-
-
-    
-
 
 /*   .footer__item--top
     display: block

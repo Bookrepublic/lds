@@ -21,7 +21,7 @@
                 .shelf__item.shelf__item--smaller
                   = link_to book do
                     li.book-excerpt--shelf-inner
-                        .book-excerpt__cover--smaller
+                        .book-excerpt__cover--smaller style="background-image:url('#{book.cover.url(:thumb)}')"
                         .book-excerpt__title = book.title
         - if @author.videos.count > 0
           h2.gamma.space--bottom-2

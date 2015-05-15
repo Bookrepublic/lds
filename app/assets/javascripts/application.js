@@ -20,6 +20,7 @@
 //= require typed
 //= require isotope
 //= require site_isotope
+//= require filtrr2
 
 var editor = new MediumEditor('.editable');
   $('.editable').bind('input propertychange', function() {
@@ -77,30 +78,22 @@ document.addEventListener('DOMContentLoaded', function(){
 $(function(){
 
   $("#home_h1").typed({
-      strings: ["Un bel sito per LDS"],
+      strings: [""],
       typeSpeed: 30,
       backDelay: 500,
       loop: false,
-      contentType: 'html', // or text
-      // defaults to false for infinite loop
+      showCursor: false,
       loopCount: false,
-      resetCallback: function() { newTyped(); }
   });
 
   $("#home_h4").typed({
-      strings: ["Cose che non ho, cose che non avrei potuto avere mai."],
+      strings: ["George Steiner"],
       typeSpeed: 30,
       backDelay: 500,
       loop: false,
-      contentType: 'html', // or text
-      // defaults to false for infinite loop
+      showCursor: false,
       loopCount: false,
 
   });
 
-  $(".reset").click(function(){
-      $("#typed").typed('reset');
-  });
 });
-
-function newTyped(){ /* A new typed object */ };
