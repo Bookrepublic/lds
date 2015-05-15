@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   get 'users/' => 'users#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :sponsors, only: [:index,:show]
-  resources :posts
+  #resources :sponsors, only: [:index,:show]
+  #resources :posts
   resources :books, only: [:index, :show]
   resources :authors, only: [:index, :show]
-  resources :tags, only: [:show, :index]
   resources :videos, only: [:show, :index]
-  resources :collections, only: [:show, :index]
+  #resources :collections, only: [:show, :index]
   resources :images do
     collection do
       post :post_image, to: 'images#post_image_create'
