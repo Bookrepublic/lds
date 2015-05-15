@@ -1,0 +1,13 @@
+title La Libreria degli Scrittori #{@author.full_name}
+meta name="description" content=truncate(@author.biography, length: 200, separator: ' ')
+meta property="fb:app_id" content="236472549828975"
+meta property="fb:profile_id" content="LibreriaDegliScrittori"
+meta property="og:title" content="#{@author.full_name}"
+meta property="og:image" content="#{@author.avatar.url}"
+meta property="og:description" content="#{@author.biography}"
+meta property="og:url" content=request.original_url
+meta name="twitter:card" content="summary_large_image"
+meta name="twitter:site" content="@Bookrep"
+meta name="twitter:title" content="#{@author.full_name}"
+meta name="twitter:description" content="#{@author.biography}"
+meta name="twitter:image" content="#{@author.avatar.url}"

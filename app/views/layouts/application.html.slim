@@ -1,12 +1,22 @@
 doctype html
 html
   head
+    - if controller.controller_name == 'books' && action_name == 'show'
+      = render 'shared/metabook'
+    - elsif controller.controller_name == 'authors' && action_name == 'show'
+      = render 'shared/metaauthor'
+    - elsif controller.controller_name == 'videos' && action_name == 'show'
+      = render 'shared/metavideo'
+    - else
+      title La Libreria degli Scrittori
+      meta property="og:locale" content="it_IT"
+      meta property="og:image" content="http://s3-eu-central-1.amazonaws.com/libreriadegliscrittori/books/covers/000/000/007/original/lds-600x600_360.png?1431698084"
+      meta property="og:description" content="I libri, o meglio gli ebook, cioè i libri in formato elettronico, anzi digitale, che i lettori trovano sui banchi della Libreria degli scrittori, sono scelti e consigliati da scrittori che con quei libri hanno particolari affinità (o magari particolari disaffinità) e che ritengono utile (o semplicemente piacevole) poterli (ancora) leggere."
+      meta name="description" content="I libri, o meglio gli ebook, cioè i libri in formato elettronico, anzi digitale, che i lettori trovano sui banchi della Libreria degli scrittori, sono scelti e consigliati da scrittori che con quei libri hanno particolari affinità (o magari particolari disaffinità) e che ritengono utile (o semplicemente piacevole) poterli (ancora) leggere."
     meta charset='utf-8'
     meta name="ROBOTS" content="NOODP"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, maximum-scale=1.0"
-    title
-      = title
     = stylesheet_link_tag :application, media: "all"
     = csrf_meta_tags
   body class="= body_class"
@@ -27,7 +37,7 @@ html
     - if flash.any?
       .wrap.space--top-2.space--bottom-2
         = render "flashes"
-    = render 'shared/header'  
+    = render 'shared/header'
 
     = yield
 

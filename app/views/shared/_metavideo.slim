@@ -1,0 +1,20 @@
+title La Libreria degli Scrittori #{@video.title}
+meta name="description" content=truncate(@video.description, length: 200, separator: ' ')
+meta property="fb:app_id" content="236472549828975"
+meta property="fb:profile_id" content="LibreriaDegliScrittori"
+meta property="og_type" content="video.other"
+meta property="og:title" content="#{@video.title}"
+meta property="og:video" content="https://www.youtube.com/embed/#{@video.video}"
+meta property="og:video:width" content="640"
+meta property="og:video:height" content="390"
+meta property="og:image" content="http://img.youtube.com/vi/#{@video.video}/mqdefault.jpg"
+meta property="og:description" content="#{@video.description}"
+meta property="og:url" content=request.original_url
+meta name="twitter:card" content="player"
+meta name="twitter:site" content="@BoorRep"
+meta name="twitter:title" content="#{@video.title}"
+meta name="twitter:description" content="#{@video.description}"
+meta name="twitter:player" content="https://www.youtube.com/embed/#{@video.video}"
+meta name="twitter:player:width" content="640"
+meta name="twitter:player:height" content="390"
+meta name="twitter:image" content="http://img.youtube.com/vi/#{@video.video}/mqdefault.jpg"
