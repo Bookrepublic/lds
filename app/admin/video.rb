@@ -18,7 +18,7 @@ ActiveAdmin.register Video do
   filter :created_at
   filter :public
 
-  permit_params :title, :description, :video, :public, sponsor_ids: [], book_ids: [], pubblication_ids: [], writer_ids: [], tag_ids: []
+  permit_params :title, :description, :video, :public, sponsor_ids: [], book_ids: [], pubblication_ids: [], writer_ids: [], tag_ids: [], author_ids: []
     #tags_attributes: {tag: nil, _destroy: nil, id: nil},
     #pubblications_attributes: {title: nil, _destroy: nil, id: nil},
     #writers_attributes: {first_name: nil, last_name: nil, _destroy: nil, id: nil},
@@ -49,6 +49,7 @@ ActiveAdmin.register Video do
     end
     f.inputs "Risorse di Libreria degli scrittori" do
       f.input :books, as: :check_boxes, label: 'Libri di LDS', collection: Book.order('title ASC').all
+      f.input :authors, as: :check_boxes, label: 'Gli autori LDS', collection: Author.order('last_name ASC').all
     end
     f.actions
   end
