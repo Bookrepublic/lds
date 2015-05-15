@@ -30,15 +30,15 @@
                 .button-store
                   a href="http://www.bookrepublic.it/book/#{@book.isbn}"
                     | Bookrepublic
-                -if @book.link_amazon
+                -if !  @book.link_amazon.blank?
                   .button-store
                     a href="#{@book.link_amazon}"
                       | Amazon
-                -if @book.link_apple
+                -if !  @book.link_apple.blank?
                   .button-store
                     a href="#{@book.link_kobo}"
                       | Apple
-                -if @book.link_kobo
+                -if !  @book.link_kobo.blank?
                   .button-store
                     a href="#{@book.link_apple}"
                       | Apple
