@@ -2,7 +2,7 @@
   .shelf.isotope
     ul
       - @books.each do |book|
-        .shelf__item data-id=book.id data-title=book.title data-author=book.authors.map(&:last_name).join(', ')
+        .shelf__item data-id=book.number data-title=book.title data-author=book.authors.map(&:last_name).join(', ')
           = link_to(book, class: 'book-excerpt') do
             li.book-excerpt__inner
               .book-excerpt__cover style="background-image: url('#{book.cover.url(:thumb)}')"
