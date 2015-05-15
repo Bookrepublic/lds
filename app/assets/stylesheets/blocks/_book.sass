@@ -92,11 +92,38 @@
   +vertical-padding(2)
 
 .button-store
-  @extend .button
-  //background-color: black
-  width: 100%
-  +margin-bottom(2)
+  border: 0
+  width: 23%
+  background-color: $mustard
+  box-shadow: none
+  margin-right: 2%
+  padding: 0.8em 1em
+  text-decoration: none
   text-align: center
+  display: inline-block
+  vertical-align: middle
+  white-space: nowrap
+  font-family: inherit
+  cursor: pointer
+  line-height: inherit
+  -webkit-appearance: none
+  border-radius: 3px
+  box-sizing: border-box
+  transition: box-shadow 0.1s ease-out, -webkit-transform 0.1s ease-out, text-shadow 0.1s ease-out, opacity 0.1s ease-out
+  transition: box-shadow 0.1s ease-out, transform 0.1s ease-out, text-shadow 0.1s ease-out, opacity 0.1s ease-out
+  font-size: 1.1em
+  +vertical-margin(1)
+  &:hover
+    background: lighten($mustard, 3%)
+    box-shadow: none
+
+  &:active
+    background: darken($mustard, 5%)
+    box-shadow: none
+  a
+    color: white
+    text-decoration: none
+
 
 
 
