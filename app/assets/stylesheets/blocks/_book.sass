@@ -89,7 +89,7 @@
 
 .button-store
   border: 0
-  width: 23%
+  width: 48%
   background-color: $mustard
   box-shadow: none
   margin-right: 2%
@@ -116,13 +116,17 @@
   &:active
     background: darken($mustard, 5%)
     box-shadow: none
+  &:last-child
+    margin-right: 0
+
+    
   a
+    +font-size(smallprint)
     color: white
     text-decoration: none
-
-
-
-
+  +at-breakpoint(desk)
+    width: 23%
+    margin-right: 2%
 
 +at-breakpoint(lte-lap)
   .book__side
